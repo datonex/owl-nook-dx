@@ -29,75 +29,106 @@
     </title>
   </head>
 
-<body class="bg-navy">
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-navy">
-    <div class="container-lg">
-      <a class="navbar-brand" href="{% url 'home' %}">
-        <img src="{% static 'img/logo/png/logo-coral.png' %}" alt="Owl Nook" class="owlnook-logo">
-      </a>
-      <!-- user is authenticated -->
-      {% if request.user.is_authenticated %}
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-label="open menu" aria-controls="offcanvasNavbar">
-          <i class="fa-solid fa-bars icon text-coral"></i>
-        </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          {% include 'includes/mobile_menu.html' %}
-        </div>
-        <div class="navbar-nav d-none d-sm-flex mx-auto">
-          <form method="GET" action="">
-            <div class="input-group w-100">
-              <input class="form-control bg-navy text-start border-0" name="q" type="text" placeholder="Search Owl Nook" aria-label="Search Owl nook">
-              <button class="btn " type="submit" aria-label="search">
+  <body class="bg-navy text-white">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-navy">
+      <div class="container-lg">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img src="{% static 'img/logo/png/logo-coral.png' %}" alt="Owl Nook" class="owlnook-logo"/>
+        </a>
+        <!-- user is authenticated -->
+        {% if request.user.is_authenticated %}
+          <ul class="navbar-nav d-flex flex-row align-content-center d-sm-none">
+            <li class="nav-item px-2 mt-1 align-self-center">
+              <a href="#" aria-label="open search" role="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#openOffCanvasSearch" aria-controls="openOffCanvasSearch">
                 <span class="icon">
                   <i class="fa-solid fa-magnifying-glass text-coral"></i>
                 </span>
+              </a>
+              <div class="offcanvas offcanvas-end bg-navy" tabindex="-1" id="openOffCanvasSearch" aria-labelledby="openOffCanvasSearchLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title text-white" id="offcanvasScrollingLabel">Search</h5>
+                  <button type="button" class="btn btn-outline-navy text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="fa-solid fa-xmark text-coral icon"></i>
+                  </button>
+                </div>
+                <div class="offcanvas-body">
+                  <form method="GET" action="">
+                    <div class="d-grid gap-2">
+                      <input class="form-control bg-navy text-start border border-1 text-white" name="q" type="text" placeholder="Search Owl Nook" aria-label="Search Owl nook"/>
+                      <button class="btn btn-outline-navy" type="submit" aria-label="search">
+                        <span class="icon">
+                          Search
+                          <i class="fa-solid fa-magnifying-glass text-coral"></i>
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item px-2 align-self-center">
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#openOffCanvasMenu" aria-label="open menu" aria-controls="openOffCanvasMenu">
+                <i class="fa-solid fa-bars icon text-coral"></i>
               </button>
-            </div>
-          </form>
-        </div>
-        <ul class="navbar-nav d-none d-sm-flex justify-content-evenly">
-          <li class="nav-item px-2 mx-1">
-            <a href="#" aria-label="saved blogs" role="button" class="nav-link"></a>
-              <span class="icon">
-                <i class="fa-solid fa-bookmark text-coral"></i>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item px-2 mx-1">
-            <a href="#" aria-label="write new blog" role="button" class="nav-link"></a>
-              <span class="icon">
-                <i class="fa-solid fa-pen-fancy text-coral"></i>
-              </span>
-            </a>
-          </li>
-          <li class="nav-item px-2 mx-1">
-            <a href="#" aria-label="user profile" role="button" class="nav-link"></a>
-              <span class="icon">
-                <i class="fa-solid fa-user text-coral"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
-        <!-- user not authenticated -->
+            </li>
+          </ul>
+          <div class="offcanvas offcanvas-end bg-navy" tabindex="-1" id="openOffCanvasMenu" aria-labelledby="openOffCanvasMenuLabel">
+            {% include 'includes/mobile_menu.html' %}
+          </div>
+          <div class="navbar-nav d-none d-sm-flex mx-auto">
+            <form method="GET" action="">
+              <div class="input-group w-100">
+                <input class="form-control bg-navy text-start border-0" name="q" type="text" placeholder="Search Owl Nook" aria-label="Search Owl nook"/>
+                <button class="btn" type="submit" aria-label="search">
+                  <span class="icon">
+                    <i class="fa-solid fa-magnifying-glass text-coral"></i>
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+          <ul class="navbar-nav d-none d-sm-flex justify-content-evenly">
+            <li class="nav-item px-2 mx-1">
+              <a href="#" aria-label="saved blogs" role="button" class="nav-link">
+                <span class="icon">
+                  <i class="fa-solid fa-bookmark text-coral"></i>
+                </span>
+              </a>
+            </li>
+            <li class="nav-item px-2 mx-1">
+              <a href="#" aria-label="write new blog" role="button" class="nav-link">
+                <span class="icon">
+                  <i class="fa-solid fa-pen-fancy text-coral"></i>
+                </span>
+              </a>
+            </li>
+            <li class="nav-item px-2 mx-1">
+              <a href="#" aria-label="user profile" role="button" class="nav-link">
+                <span class="icon">
+                  <i class="fa-solid fa-user text-coral"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <!-- user not authenticated -->
         {% else %}
-        <ul class="navbar-nav">
-          <li class="nav-item d-none d-sm-block me-2">
-            <a class="btn btn-outline-navy" href="{% url 'account_login' %}" role="button">Login</a>
-          </li>
-          <li class="nav-item d-none d-sm-block ms-2">
-            <a class="btn btn-coral" href="{% url 'account_signup' %}" role="button">Register</a>
-          </li>
-          <li class="nav-item d-block d-sm-none">
-            <a class="btn btn-coral" href="{% url 'account_signup' %}" role="button">Get started</a>
-          </li>
-        </ul>
-      {% endif %}
-    </div>
-
-  </nav>
-  <hr class="main-hr text-grey-20 mx-auto mt-1"/>
-  {% block content %}{% endblock %}
-</body>
+          <ul class="navbar-nav">
+            <li class="nav-item d-none d-sm-block me-2">
+              <a class="btn btn-outline-navy" href="{% url 'account_login' %}" role="button">Login</a>
+            </li>
+            <li class="nav-item d-none d-sm-block ms-2">
+              <a class="btn btn-coral" href="{% url 'account_signup' %}" role="button">Register</a>
+            </li>
+            <li class="nav-item d-block d-sm-none">
+              <a class="btn btn-coral" href="{% url 'account_signup' %}" role="button">Get started</a>
+            </li>
+          </ul>
+        {% endif %}
+      </div>
+    </nav>
+    <hr class="main-hr text-grey-20 mx-auto mt-1"/>
+    {% block content %}{% endblock %}
+  </body>
 
 </html>

@@ -101,15 +101,36 @@ body {
 
 /* ----------------------------------- Buttons */
 
-.btn-outline-navy {
+.btn-outline-coral {
   color: var(--coral) !important;
   border-color: var(--coral) !important;
 }
 
-.btn-outline-navy:hover {
+.btn-outline-coral:hover {
   color: white !important;
   background-color: var(--coral);
   border-color: var(--coral);
+}
+
+.btn-check:active + .btn-outline-coral,
+.btn-check:checked + .btn-outline-coral,
+.btn-outline-coral.active,
+.btn-outline-coral.dropdown-toggle.show,
+.btn-outline-coral:active {
+  color: var(--coral) !important;
+  background-color: var(--navy) !important;
+  border-color: var(--coral) !important;
+}
+
+.btn-outline-navy {
+  color: var(--coral) !important;
+  border-color: var(--navy) !important;
+}
+
+.btn-outline-navy:hover {
+  color: white !important;
+  background-color: var(-navyl);
+  border-color: var(--navy);
 }
 
 .btn-check:active + .btn-outline-navy,
@@ -119,7 +140,7 @@ body {
 .btn-outline-navy:active {
   color: var(--coral) !important;
   background-color: var(--navy) !important;
-  border-color: var(--coral) !important;
+  border-color: var(--navy) !important;
 }
 
 .btn-coral {
@@ -149,4 +170,9 @@ body {
 .owlnook-logo {
   width: 100px;
   height: 45px;
+}
+
+.title-hr {
+  border: 3px solid var(--grey);
+  width: 80px;
 }
