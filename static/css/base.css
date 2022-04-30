@@ -1,6 +1,9 @@
 :root {
   --grey: #a2abb5;
+  --grey-80: rgba(162, 171, 181, 0.8);
   --grey-60: rgba(162, 171, 181, 0.6);
+  --grey-40: rgba(162, 171, 181, 0.4);
+  --grey-20: rgba(162, 171, 181, 0.2);
   --transparent: rgba(0, 0, 0, 0);
 
   --coral: #f87575;
@@ -9,15 +12,141 @@
   --coral-40: rgba(248, 117, 117, 0.4);
   --coral-20: rgba(248, 117, 117, 0.2);
 
-  --dark-blue: #0e103d;
-  --dark-blue-80: rgba(14, 16, 61, 0.8);
-  --dark-blue-60: rgba(14, 16, 61, 0.6);
-  --dark-blue-40: rgba(14, 16, 61, 0.4);
-  --dark-blue-20: rgba(14, 16, 61, 0.2);
+  --navy: #0e103d;
+  --navy-80: rgba(14, 16, 61, 0.8);
+  --navy-60: rgba(14, 16, 61, 0.6);
+  --navy-40: rgba(14, 16, 61, 0.4);
+  --navy-20: rgba(14, 16, 61, 0.2);
 }
 
 /* ------------- General Styles ------------- */
 
 body {
   font-family: "Poppins", sans-serif;
+}
+
+.bg-navy {
+  background-color: var(--navy) !important;
+}
+
+.bg-grey {
+  background-color: var(--grey) !important;
+}
+
+.bg-grey-80 {
+  background-color: var(--grey-80) !important;
+}
+
+.bg-grey-60 {
+  background-color: var(--grey-60) !important;
+}
+
+.bg-grey-40 {
+  background-color: var(--grey-40) !important;
+}
+
+.bg-grey-20 {
+  background-color: var(--grey-20) !important;
+}
+
+.text-navy {
+  color: var(--navy) !important;
+}
+
+.text-coral {
+  color: var(--coral) !important;
+}
+
+.text-grey {
+  color: var(--grey) !important;
+}
+
+.text-grey-80 {
+  color: var(--grey-80) !important;
+}
+
+.text-grey-60 {
+  color: var(--grey-60) !important;
+}
+
+.text-grey-40 {
+  color: var(--grey-40) !important;
+}
+
+.text-grey-20 {
+  color: var(--grey-20) !important;
+}
+
+.border-navy {
+  border-color: var(--navy) !important;
+}
+
+.border-coral {
+  border-color: var(--coral) !important;
+}
+
+.main-hr {
+  height: 3px !important;
+  width: 80vw !important;
+}
+
+.icon {
+  font-size: 1.5rem;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* ----------------------------------- Buttons */
+
+.btn-outline-navy {
+  color: var(--coral) !important;
+  border-color: var(--coral) !important;
+}
+
+.btn-outline-navy:hover {
+  color: white !important;
+  background-color: var(--coral);
+  border-color: var(--coral);
+}
+
+.btn-check:active + .btn-outline-navy,
+.btn-check:checked + .btn-outline-navy,
+.btn-outline-navy.active,
+.btn-outline-navy.dropdown-toggle.show,
+.btn-outline-navy:active {
+  color: var(--coral) !important;
+  background-color: var(--navy) !important;
+  border-color: var(--coral) !important;
+}
+
+.btn-coral {
+  color: var(white) !important;
+  background-color: var(--coral) !important;
+  border-color: var(--coral) !important;
+}
+
+.btn-coral:hover {
+  color: white !important;
+  background-color: var(--navy) !important;
+  border-color: var(--coral);
+}
+
+.btn-check:active + .btn-coral,
+.btn-check:checked + .btn-coral,
+.btn-coral.active,
+.btn-coral.dropdown-toggle.show,
+.btn-coral:active {
+  color: white !important;
+  background-color: var(--navy) !important;
+  border-color: var(--coral) !important;
+}
+
+/* ------------- Navigation ------------- */
+
+.owlnook-logo {
+  width: 100px;
+  height: 45px;
 }

@@ -4,5 +4,5 @@ from django.shortcuts import render
 def index(request):
     """View home page"""
 
-    template = "blog/blog.html"
+    template = "blog/index.html"
     return render(request, template)
