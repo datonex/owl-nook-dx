@@ -1,11 +1,21 @@
 {% extends "account/base.html" %}
 
 {% load i18n %}
+{% block extra_title %}|
+  {% trans "Sign Up Closed" %}
+{% endblock %}
 
-{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
+{% block inner_heading %}{% trans "Sign Up Closed" %}
+{% endblock %}
 
-{% block content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
-
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+{% block inner_content %}
+  <div class="container">
+    <div class="col-md-8 col-lg-6 mx-auto">
+      <div class="form-group bg-white-20 rounded py-4">
+        <div class="my-3 text-center">
+          <p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

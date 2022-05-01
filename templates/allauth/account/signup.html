@@ -2,20 +2,49 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block extra_title %}|
+  {% trans "Signup" %}
+{% endblock %}
 
-{% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+{% block inner_heading %}Sign up{% endblock %}
+{% block inner_content %}
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  <div class="container">
+    <div class="col-md-8 col-lg-6 mx-auto">
+      <div class="form-group bg-white-20 rounded py-4">
+        <div class="my-3 text-center">
+          Already a member?
+          <a href="{{ login_url }}" class="link-coral">Login</a>
+        </div>
+        <form class="signup d-flex flex-column align-items-center justify-content-center" id="signup_form" method="POST" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          <div class="container">
+            <div class="col-12 col-lg-8 mx-auto">
+              <div class="row">
+                <div class="col-12 col-lg-10 mx-auto">
+                  {{ form|crispy }}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+          <div class="text-center mt-3">
+            <button class=" btn btn-coral" type="submit">Sign Up</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
-
+{% endblock %}
+{% block postload_js %}
+  <script type="text/javascript">
+    $(function () {
+      if ($('input[type="password"]')) {
+        $('input[type="password"]').attr("autocomplete", "new-password");
+      }
+    });
+  </script>
 {% endblock %}
