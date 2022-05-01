@@ -1,46 +1,44 @@
 {% extends "account/base.html" %}
-
 {% load i18n %}
 {% load account socialaccount %}
+{% block extra_title %}|
+  {% trans "Sign In" %}
+{% endblock %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block inner_heading %}Sign In{% endblock %}
 
-{% block content %}
-
-<h1>{% trans "Sign In" %}</h1>
-
-{% get_providers as socialaccount_providers %}
-
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
-</div>
-
-{% include "socialaccount/snippets/login_extra.html" %}
-
-{% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
-
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
-</form>
+{% block inner_content %}
+  <div class="container">
+    <div class="col-md-8 col-lg-6 mx-auto">
+      <div class="form-group bg-white-20 rounded py-4">
+        <div class="my-3 text-center">
+          Not a member?
+          <a href="{{ signup_url }}" class="link-coral">sign up</a>
+          first
+        </div>
+        <form class="login d-flex flex-column align-items-center justify-content-center" method="POST" action="{% url 'account_login' %}">
+          {% csrf_token %}
+          <div class="container">
+            <div class="col-12 col-lg-8 mx-auto">
+              <div class="row">
+                <div class="col-12 col-lg-10 mx-auto">
+                  {{ form|crispy }}
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+          {% endif %}
+          <div class="text-center mt-3">
+            <button class="primaryAction btn btn-coral" type="submit">{% trans "Sign In" %}</button>
+          </div>
+          <div class="mt-3 text-center">
+            <a class="button secondaryAction link-coral" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
