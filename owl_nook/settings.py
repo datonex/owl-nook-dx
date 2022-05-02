@@ -185,6 +185,10 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 # TinyMCE configuration
 # https://django-tinymce.readthedocs.io/en/latest/installation.html#configuration
 
+TINYMCE_KEY = os.environ.get("TINYMCE_KEY")
+
+TINYMCE_JS_URL = f"https://cdn.tiny.cloud/1/{TINYMCE_KEY}/tinymce/5/tinymce.min.js"
+
 TINYMCE_DEFAULT_CONFIG = {
     "menubar": "edit view insert format tools table help",
     "plugins": "advlist autolink lists link image charmap preview anchor searchreplace visualblocks code "
@@ -199,7 +203,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "content_style": "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');",
     "deprecation_warnings": "false",
 }
-
+TINYMCE_COMPRESSOR = False
 TINYMCE_SPELLCHECKER = True
 
 # Default primary key field type

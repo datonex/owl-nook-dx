@@ -50,6 +50,26 @@ body {
   background-color: var(--grey-20) !important;
 }
 
+.bg-coral {
+  background-color: var(--coral) !important;
+}
+
+.bg-coral-80 {
+  background-color: var(--coral-80) !important;
+}
+
+.bg-coral-60 {
+  background-color: var(--coral-60) !important;
+}
+
+.bg-coral-40 {
+  background-color: var(--coral-40) !important;
+}
+
+.bg-coral-20 {
+  background-color: var(--coral-20) !important;
+}
+
 .bg-white-20 {
   background-color: var(--white-20) !important;
 }
@@ -88,6 +108,10 @@ body {
 
 .border-coral {
   border-color: var(--coral) !important;
+}
+
+.border-grey-60 {
+  border-color: var(--grey-60) !important;
 }
 
 .main-hr {
@@ -198,6 +222,28 @@ input[type="email"] {
   color: white !important;
   background-color: var(--navy) !important;
   border-color: var(--coral) !important;
+}
+
+.btn-grey {
+  color: var(white) !important;
+  background-color: var(--grey) !important;
+  border-color: var(--grey) !important;
+}
+
+.btn-grey:hover {
+  color: var(--navy) !important;
+  background-color: white !important;
+  border-color: var(--grey);
+}
+
+.btn-check:active + .btn-grey,
+.btn-check:checked + .btn-grey,
+.btn-grey.active,
+.btn-grey.dropdown-toggle.show,
+.btn-grey:active {
+  color: var(--navy) !important;
+  background-color: white !important;
+  border-color: var(--grey) !important;
 }
 
 /* ------------- Navigation ------------- */
