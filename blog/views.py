@@ -2,10 +2,10 @@ from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post
 
-
+# https://cpadiernos.github.io/function-based-views-and-their-class-based-view-equivalents-in-django-part-one.html
 class PostList(generic.ListView):
     """List view to display posts on home page"""
 
@@ -43,21 +43,25 @@ class PostDetail(View):
         return render(request, "blog/post_detail.html", context)
 
 
-class AddPost(generic.CreateView):
+class AddPost(LoginRequiredMixin, generic.CreateView):
     model = Post
     template_name = "blog/add_post.html"
     fields = (
         "title",
         "slug",
-        "author",
         "featured_image",
         "category",
         "content",
         "status",
     )
 
+    # https://docs.djangoproject.com/en/3.2/topics/class-based-views/generic-editing/#models-and-request-user
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
-class EditPost(generic.UpdateView):
+
+class EditPost(LoginRequiredMixin, generic.UpdateView):
     model = Post
     fields = (
         "title",
@@ -70,7 +74,7 @@ class EditPost(generic.UpdateView):
     template_name = "blog/edit_post.html"
 
 
-class DeletePost(generic.DeleteView):
+class DeletePost(LoginRequiredMixin, generic.DeleteView):
     model = Post
     template_name = "blog/includes/delete_post.html"
     success_url = reverse_lazy("home")
