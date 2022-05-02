@@ -74,6 +74,10 @@ body {
   background-color: var(--white-20) !important;
 }
 
+.bg-transp {
+  background-color: var(--transp) !important;
+}
+
 .text-navy {
   color: var(--navy) !important;
 }
@@ -145,7 +149,9 @@ label {
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="file"],
+.form-select {
   color: white !important;
   background-color: var(--transp) !important;
   border: none !important;

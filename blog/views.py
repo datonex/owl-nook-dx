@@ -2,6 +2,7 @@ from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
+from .forms import EditForm
 
 
 class PostList(generic.ListView):
@@ -53,3 +54,16 @@ class AddPost(generic.CreateView):
         "content",
         "status",
     )
+
+
+class EditPost(generic.UpdateView):
+    model = Post
+    fields = (
+        "title",
+        "slug",
+        "featured_image",
+        "category",
+        "content",
+        "status",
+    )
+    template_name = "blog/edit_post.html"
