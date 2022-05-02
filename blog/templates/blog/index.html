@@ -106,16 +106,12 @@
             </div>
           {% endfor %}
         </div>
-        {% if page_obj.has_next %}
-          <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
-        {% endif %}
         <div class="d-flex justify-content-center">
-          <div id="loading" class="spinner-border text-dp mx-auto" role="status" style="display: none;">
+          <div id="loading" class="spinner-border mx-auto" role="status" style="display: none;">
             <span class="visually-hidden">Loading...</span>
           </div>
-          {% if posts.has_next %}
-            <a class="infinite-more-link btn btn-coral" href="?page={{ posts.next_page_number }}" type="button">
-              Loading ...
+          {% if page_post.has_next %}
+            <a class="infinite-more-link btn btn-coral" href="?page={{ page_post.next_page_number }}" type="button">
             </a>
           {% endif %}
         </div>

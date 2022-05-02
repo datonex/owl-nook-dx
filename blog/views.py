@@ -1,6 +1,6 @@
 from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
 
 
@@ -11,7 +11,21 @@ class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "blog/index.html"
-    paginate_by = 2
+
+    # https://simpleisbetterthancomplex.com/tutorial/2017/03/13/how-to-create-infinite-scroll-with-django.html
+    def my_pagination(self, request):
+        """function that paginates queries. Used only to fix waypoint infinite scrolling"""
+        queryset = Post.objects.filter(status=1).order_by("-created_on")
+        page_number = request.GET.get("page", 4)
+        paginator = Paginator(queryset, 1)
+
+        try:
+            queryset = paginator.page(page_number)
+        except PageNotAnInteger:
+            queryset = paginator.page(1)
+        except EmptyPage:
+            queryset = paginator.page(paginator.num_pages)
+        return render(request, self.template_name, {"page_post": queryset})
 
 
 class PostDetail(View):
