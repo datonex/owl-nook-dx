@@ -33,6 +33,7 @@ else:
     DEBUG = False
 
 ALLOWED_HOSTS = [os.environ.get("HOSTNAME")]
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 
 # Application definition
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "cloudinary",
+    "tinymce",
     "blog",
     "crispy_forms",
     "crispy_bootstrap5",
@@ -178,6 +180,26 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+# TinyMCE configuration
+# https://django-tinymce.readthedocs.io/en/latest/installation.html#configuration
+
+TINYMCE_DEFAULT_CONFIG = {
+    "menubar": "edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker checklist",
+    "toolbar": "spellchecker undo redo | bold italic underline strikethrough | fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist "
+    "casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "font_formats": "Poppins=poppins",
+    "content_style": "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');",
+    "deprecation_warnings": "false",
+}
+
+TINYMCE_SPELLCHECKER = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
