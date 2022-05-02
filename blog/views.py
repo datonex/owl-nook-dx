@@ -2,7 +2,6 @@ from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Post
-from .forms import EditForm
 
 
 class PostList(generic.ListView):
