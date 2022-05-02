@@ -129,6 +129,11 @@ input[type="email"] {
   border-radius: 0;
 }
 
+.form-check-input:checked {
+  background-color: var(--coral) !important;
+  border-color: var(--coral) !important;
+}
+
 /* ----------------------------------- Buttons */
 
 .btn-outline-coral {
