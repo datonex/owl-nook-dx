@@ -1,5 +1,167 @@
 {% extends 'base.html' %}
 {% load static %}
-<h1>
-  blog page
-</h1>
+{% block content %}
+  <div class="container home-posts">
+    <h1>Featured Posts</h1>
+    <!-- Blog entries-->
+    <div class="row">
+      <!-- Featured posts -->
+      <div class="col">
+        <div class="row">
+          <div class="col-lg-6">
+            <!-- Featured blog post-->
+            <div class="card mb-4 bg-dark text-white featured-post">
+              {% comment %} prettier-ignore {% endcomment %}
+              {% if "placeholder" in posts.0.featured_image.url %}
+                <img class="card-img" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg"/>
+              {% else %}
+                <img class="card-img" src="{{ posts.0.featured_image.url }}"/>
+              {% endif %}
+              <div class="card-img-overlay d-flex align-items-baseline flex-column justify-content-end">
+                <p class="text-muted text-white">{{ posts.0.category }}</p>
+                <h2 class="card-title h2">{{ posts.0.title }}</h2>
+                <p class="small text-muted text-white">
+                  {{ posts.0.author }}
+                  |
+                  {{ posts.0.created_on }}
+                </p>
+                <a class="btn btn-secondary d-flex align-items-center justify-content-between" href="{% url 'post_detail' posts.0.slug %}">
+                  Read more
+                  <i class="fa fa-chevron-right d-flex align-items-center justify-content-between" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- Featured blog post-->
+            <div class="card mb-4 bg-dark text-white featured-post">
+              {% comment %} prettier-ignore {% endcomment %}
+              {% if "placeholder" in posts.1.featured_image.url %}
+                <img class="card-img" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg"/>
+              {% else %}
+                <img class="card-img" src="{{ posts.1.featured_image.url }}"/>
+              {% endif %}
+              <div class="card-img-overlay d-flex align-items-baseline flex-column justify-content-end">
+                <p class="text-muted text-white">{{ posts.1.category }}</p>
+                <h2 class="card-title h2">{{ posts.1.title }}</h2>
+                <p class="small text-muted">
+                  {{ posts.1.author }}
+                  |
+                  {{ posts.1.created_on }}
+                </p>
+                <a class="btn btn-secondary d-flex align-items-center justify-content-between" href="{% url 'post_detail' posts.1.slug %}">Read more
+                  <i class="fa fa-chevron-right d-flex align-items-center justify-content-between" aria-hidden="true"></i>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="mb-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <!-- Nested row for non-featured blog posts-->
+        <div class="row infinite-container">
+          {% for post in posts %}
+            <div class="card-group col-lg-6 infinite-item">
+              <!-- Blog post-->
+              <div class="card mb-4">
+                <a href="{% url 'post_detail' post.slug %}">
+                  {% if "placeholder" in post.featured_image.url %}
+                    <img class="card-img-top" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg"/>
+                  {% else %}
+                    <img class="card-img-top" src=" {{ post.featured_image.url }}"/>
+                  {% endif %}
+                </a>
+
+                <div class="card-body">
+                  <div class="small text-muted">{{ post.author }}
+                    |
+                    {{ post.created_on }}</div>
+                  <h2 class="card-title h4">{{ post.title }}</h2>
+                  <p class="card-text">{{ post.excerpt }}
+                    ...</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                  <a class="btn btn-secondary d-flex align-items-center justify-content-between" href="{% url 'post_detail' post.slug %}">Read more
+                    <i class="fa fa-chevron-right d-flex align-items-center justify-content-between" aria-hidden="true"></i>
+                  </a>
+
+                  <small class="text-muted">{{ post.category }}</small>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% if page_obj.has_next %}
+          <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+        {% endif %}
+        <div class="d-flex justify-content-center spin-loader">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+      <!-- Side widgets-->
+      <div class="col-lg-4">
+        <!-- Search widget-->
+        <div class="card mb-4">
+          <div class="card-header">Search</div>
+          <div class="card-body">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search"/>
+              <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+            </div>
+          </div>
+        </div>
+        <!-- Categories widget-->
+        <div class="card mb-4">
+          <div class="card-header">Categories</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!">Web Design</a>
+                  </li>
+                  <li>
+                    <a href="#!">HTML</a>
+                  </li>
+                  <li>
+                    <a href="#!">Freebies</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!">JavaScript</a>
+                  </li>
+                  <li>
+                    <a href="#!">CSS</a>
+                  </li>
+                  <li>
+                    <a href="#!">Tutorials</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Side widget-->
+        <div class="card mb-4">
+          <div class="card-header">Side Widget</div>
+          <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block postload_js %}
+  <script type="text/javascript">
+
+  </script>
+{% endblock %}
