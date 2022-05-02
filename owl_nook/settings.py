@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "cloudinary",
     "tinymce",
     "blog",
+    "owlet",
     "crispy_forms",
     "crispy_bootstrap5",
 ]
@@ -78,7 +79,7 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             os.path.join(BASE_DIR, "templates"),
-            os.path.join(BASE_DIR, "templates", "allauth"),
+            os.path.join(BASE_DIR, "owlet", "templates", "owlet", "allauth"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -117,7 +118,7 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = "/accounts/login/"
+LOGIN_URL = "/owlet/login/"
 LOGIN_REDIRECT_URL = "/"
 
 

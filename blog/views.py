@@ -2,6 +2,7 @@ from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from .models import Post
 
 
