@@ -25,3 +25,17 @@ class PostDetail(View):
             "posted": posted,
         }
         return render(request, "blog/post_detail.html", context)
+
+
+class AddPost(generic.CreateView):
+    model = Post
+    template_name = "blog/add_post.html"
+    fields = (
+        "title",
+        "slug",
+        "author",
+        "featured_image",
+        "category",
+        "content",
+        "status",
+    )

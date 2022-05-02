@@ -187,13 +187,11 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 TINYMCE_KEY = os.environ.get("TINYMCE_KEY")
 
-TINYMCE_JS_URL = f"https://cdn.tiny.cloud/1/{TINYMCE_KEY}/tinymce/5/tinymce.min.js"
-
 TINYMCE_DEFAULT_CONFIG = {
     "menubar": "edit view insert format tools table help",
     "plugins": "advlist autolink lists link image charmap preview anchor searchreplace visualblocks code "
-    "fullscreen insertdatetime media table paste code help wordcount spellchecker checklist",
-    "toolbar": "spellchecker undo redo | bold italic underline strikethrough | fontsizeselect formatselect | alignleft "
+    "fullscreen insertdatetime media table paste code help wordcount checklist",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontsizeselect formatselect | alignleft "
     "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist "
     "casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
     "fullscreen  preview save | insertfile image media pageembed template link anchor codesample | "
