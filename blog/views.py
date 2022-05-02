@@ -1,6 +1,7 @@
 from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.urls import reverse_lazy
 from .models import Post
 
 
@@ -66,3 +67,9 @@ class EditPost(generic.UpdateView):
         "status",
     )
     template_name = "blog/edit_post.html"
+
+
+class DeletePost(generic.DeleteView):
+    model = Post
+    template_name = "blog/includes/delete_post.html"
+    success_url = reverse_lazy("home")

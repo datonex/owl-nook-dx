@@ -18,8 +18,12 @@
           {% comment %} {{ image_form }} {% endcomment %}
           <div class="text-center">
             <button type="submit" value="addpost" class="btn btn-coral">update</button>
+            <button type="button" class="btn btn-outline-coral ms-3" data-bs-toggle="modal" data-bs-target="#id-delete-{{ post.pk }}">
+              Delete
+            </button>
           </div>
         </form>
+        {% include 'blog/includes/delete_post.html'%}
       </div>
     </div>
   </div>

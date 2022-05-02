@@ -94,9 +94,10 @@
                 </a>
               </div>
               <div class="mb-4 ps-2">
-                <a class="btn btn-danger d-flex align-items-center justify-content-between" href="">
+                <button class="btn btn-danger d-flex align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#id-delete-{{ post.pk }}">
                   Delete
-                </a>
+                </button>
+                {% include 'blog/includes/delete_post.html'%}
               </div>
             </div>
             <!-- Preview image figure-->
