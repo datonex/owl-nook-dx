@@ -12,3 +12,12 @@
   width: 100%;
   object-fit: cover;
 }
+
+.anon-content {
+  min-height: 100%;
+  background-image: linear-gradient(
+    var(--navy),
+    rgba(255, 255, 255, 0.2),
+    var(--navy)
+  );
+}

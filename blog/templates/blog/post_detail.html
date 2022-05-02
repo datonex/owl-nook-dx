@@ -2,6 +2,11 @@
 {%block title %}{{post.title}}
 {% endblock %}
 {% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}"/>
+{% endblock %}
+
 {% load cloudinary %}
 {% block content %}
   {% with posts|last as last%}
@@ -50,58 +55,62 @@
     <div class="row d-flex flex-column align-items-center">
       <div class="col-lg-8">
         <!-- Post content-->
-        <article class="d-flex flex-column align-items-center">
-          <!-- Post header-->
-          <header class="mb-4 container-fluid">
-            <!-- Post title-->
-            <h1 class="fw-bolder mb-1 text-capitalize text-center">{{ post.title }}</h1>
-            <hr class="title-hr text-center ms-auto me-auto mb-4">
-            <!-- Post meta content-->
-            <div class="d-flex justify-content-between">
-              <div class="d-flex">
-                <div class="flex-shrink-0">
-                  <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/>
-                </div>
-                <div class="text-muted fst-italic ms-3">
-                  <div class="fw-bold">{{ post.author }}</div>
-                  {{ post.created_on }}
-                </div>
-              </div>
+        {% if user.is_authenticated %}
+          <article class="d-flex flex-column align-items-center">
+            <!-- Post header-->
+            <header class="mb-4 container-fluid">
+              <!-- Post title-->
+              <h1 class="fw-bolder mb-1 text-capitalize text-center">{{ post.title }}</h1>
+              <hr class="title-hr text-center ms-auto me-auto mb-4">
+              <!-- Post meta content-->
               <div class="d-flex justify-content-between">
-                <span class="me-2">
-                  <i class="fa fa-bookmark" aria-hidden="true"></i>
-                </span>
-                <span class="ms-3">
-                  <i class="fa fa-external-link-alt" aria-hidden="true"></i>
-                </span>
+                <div class="d-flex">
+                  <div class="flex-shrink-0">
+                    <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/>
+                  </div>
+                  <div class="text-muted fst-italic ms-3">
+                    <div class="fw-bold">{{ post.author }}</div>
+                    {{ post.created_on }}
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                  <span class="me-2 icon">
+                    <i class="fa-regular fa-bookmark text-coral"></i>
+                  </span>
+                  <span class="ms-3 icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-coral"></i>
+                  </span>
+                </div>
+              </div>
+            </header>
+            <div class="col d-flex ">
+              <div class="mb-4 pe-2">
+                <a class="btn btn-success d-flex align-items-center justify-content-between" href="">
+                  Edit
+                </a>
+              </div>
+              <div class="mb-4 ps-2">
+                <a class="btn btn-danger d-flex align-items-center justify-content-between" href="">
+                  Delete
+                </a>
               </div>
             </div>
-          </header>
-          <div class="col d-flex ">
-            <div class="mb-4 pe-2">
-              <a class="btn btn-success d-flex align-items-center justify-content-between" href="">
-                Edit
-              </a>
-            </div>
-            <div class="mb-4 ps-2">
-              <a class="btn btn-danger d-flex align-items-center justify-content-between" href="">
-                Delete
-              </a>
-            </div>
-          </div>
-          <!-- Preview image figure-->
-          <figure class="mb-4">
-            {% if "placeholder" in post.featured_image.url %}
-              <img class="img-fluid rounded" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg" width="100%">
-            {% else %}
-              <img class="img-fluid rounded" src=" {{ post.featured_image.url }}" width="100%">
-            {% endif %}
-          </figure>
-          <!-- Post content-->
-          <section>
-            <p>{{ post.content | safe }}</p>
-          </section>
-        </article>
+            <!-- Preview image figure-->
+            <figure class="mb-4">
+              {% if "placeholder" in post.featured_image.url %}
+                <img class="img-fluid rounded" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg" width="100%">
+              {% else %}
+                <img class="img-fluid rounded" src=" {{ post.featured_image.url }}" width="100%">
+              {% endif %}
+            </figure>
+            <!-- Post content-->
+            <section>
+              <p>{{ post.content | safe }}</p>
+            </section>
+          </article>
+        {% else %}
+          {% include 'blog/includes/post_detail_anon.html'%}
+        {% endif %}
         <!-- Author details section-->
         <section class="mb-5"></section>
         <!-- Categories section-->
@@ -112,7 +121,7 @@
         <section class="mb-5">
           <div class="row">
             <form action="" method="POST">
-
+              {% csrf_token %}
               {%if liked %}
                 <div class="interact-btn">
                   <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like">
@@ -137,51 +146,52 @@
             </form>
           </div>
         </section>
-
-        <!-- Comments section-->
-        <section class="mb-5">
-          <div class="card bg-light">
-            <div class="card-body">
-              <!-- Comment form-->
-              <form class="mb-4">
-                <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
-              </form>
-              <!-- Comment with nested comments-->
-              <div class="d-flex mb-4">
-                <!-- Parent comment-->
-                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                <div class="ms-3">
-                  <div class="fw-bold">Commenter Name</div>
-                  If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                  <!-- Child comment 1-->
-                  <div class="d-flex mt-4">
-                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                    <div class="ms-3">
-                      <div class="fw-bold">Commenter Name</div>
-                      And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+        {% if user.is_authenticated %}
+          <!-- Comments section-->
+          <section class="mb-5">
+            <div class="card bg-light">
+              <div class="card-body">
+                <!-- Comment form-->
+                <form class="mb-4">
+                  <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                </form>
+                <!-- Comment with nested comments-->
+                <div class="d-flex mb-4">
+                  <!-- Parent comment-->
+                  <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
+                  <div class="ms-3">
+                    <div class="fw-bold">Commenter Name</div>
+                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
+                    <!-- Child comment 1-->
+                    <div class="d-flex mt-4">
+                      <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
+                      <div class="ms-3">
+                        <div class="fw-bold">Commenter Name</div>
+                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+                      </div>
                     </div>
-                  </div>
-                  <!-- Child comment 2-->
-                  <div class="d-flex mt-4">
-                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                    <div class="ms-3">
-                      <div class="fw-bold">Commenter Name</div>
-                      When you put money directly to a problem, it makes a good headline.
+                    <!-- Child comment 2-->
+                    <div class="d-flex mt-4">
+                      <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
+                      <div class="ms-3">
+                        <div class="fw-bold">Commenter Name</div>
+                        When you put money directly to a problem, it makes a good headline.
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- Single comment-->
-              <div class="d-flex">
-                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                <div class="ms-3">
-                  <div class="fw-bold">Commenter Name</div>
-                  When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
+                <!-- Single comment-->
+                <div class="d-flex">
+                  <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
+                  <div class="ms-3">
+                    <div class="fw-bold">Commenter Name</div>
+                    When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        {% endif %}
       </div>
 
     </div>

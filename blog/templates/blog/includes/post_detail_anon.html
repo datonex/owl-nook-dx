@@ -1,0 +1,53 @@
+<article class="d-flex flex-column align-items-center">
+  <!-- Post header-->
+  <header class="mb-4 container-fluid">
+    <!-- Post title-->
+    <h1 class="fw-bolder mb-1 text-capitalize text-center">{{ post.title }}</h1>
+    <hr class="title-hr text-center ms-auto me-auto mb-4">
+    <!-- Post meta content-->
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <div class="flex-shrink-0">
+          <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/>
+        </div>
+        <div class="text-muted fst-italic ms-3">
+          <div class="fw-bold">{{ post.author }}</div>
+          {{ post.created_on }}
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <span class="me-2 icon">
+          <i class="fa-regular fa-bookmark text-coral"></i>
+        </span>
+        <span class="ms-3 icon">
+          <i class="fa-solid fa-arrow-up-right-from-square text-coral"></i>
+        </span>
+      </div>
+    </div>
+  </header>
+  <!-- Preview image figure-->
+  <figure class="mb-4">
+    {% if "placeholder" in post.featured_image.url %}
+      <img class="img-fluid rounded" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg" width="100%" alt="laptop on desk">
+    {% else %}
+      <img class="img-fluid rounded" src=" {{ post.featured_image.url }}" width="100%" alt="{{ post.title }} image">
+    {% endif %}
+  </figure>
+  <!-- Post content-->
+  <section class="col-12">
+    <div class="anon-content">
+      {{ post.content|safe|truncatechars:200 }}
+    </div>
+    <div class="anon-content-links">
+      <h6 class="fw-bolder mb-1 text-capitalize text-center">Register to read full post</h6>
+      <hr class="title-hr text-center ms-auto me-auto mb-4">
+      <div class="text-center mb-3">
+        <a class="btn btn-coral" href="{% url 'account_login' %}" role="button">Login</a>
+      </div>
+      <div class="text-center">
+        Already a member?
+        <a class="link-coral" href="{% url 'account_signup' %}" role="button">Register</a>
+      </div>
+    </div>
+  </section>
+</article>
