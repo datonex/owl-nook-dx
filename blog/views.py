@@ -3,9 +3,31 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post
+from .models import Post, Category
 
 # https://cpadiernos.github.io/function-based-views-and-their-class-based-view-equivalents-in-django-part-one.html
+
+
+class RedirectToPreviousMixin:
+    # https://stackoverflow.com/questions/62626660/redirect-back-to-previous-page-django
+    """
+    Redirection class to return to page the user came form after form
+    submition, if no previous page exists, user will be redirected to
+    home page
+    """
+
+    default_redirect = "/"
+
+    def get(self, request, *args, **kwargs):
+        request.session["previous_page"] = request.META.get(
+            "HTTP_REFERER", self.default_redirect
+        )
+        return super().get(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return self.request.session["previous_page"]
+
+
 class PostList(generic.ListView):
     """List view to display posts on home page"""
 
@@ -16,7 +38,10 @@ class PostList(generic.ListView):
 
     # https://simpleisbetterthancomplex.com/tutorial/2017/03/13/how-to-create-infinite-scroll-with-django.html
     def my_pagination(self, request):
-        """function that paginates queries. Used only to fix waypoint infinite scrolling"""
+        """
+        function that paginates queries. Used only to fix waypoint
+        infinite scrolling bug when class based pagination is used
+        """
         queryset = Post.objects.filter(status=1).order_by("-created_on")
         page_number = request.GET.get("page", 4)
         paginator = Paginator(queryset, 1)
@@ -31,6 +56,8 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
+    """Class to return post details, including handling comments, and like/dislikes"""
+
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -44,6 +71,8 @@ class PostDetail(View):
 
 
 class AddPost(LoginRequiredMixin, generic.CreateView):
+    """Class to handle adding a blog post for users"""
+
     model = Post
     template_name = "blog/add_post.html"
     fields = (
@@ -62,6 +91,8 @@ class AddPost(LoginRequiredMixin, generic.CreateView):
 
 
 class EditPost(LoginRequiredMixin, generic.UpdateView):
+    """Class to handle editing a blog post for users"""
+
     model = Post
     fields = (
         "title",
@@ -75,6 +106,16 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
 
 
 class DeletePost(LoginRequiredMixin, generic.DeleteView):
+    """Class to handle deleting their blog post for users"""
+
     model = Post
     template_name = "blog/includes/delete_post.html"
     success_url = reverse_lazy("home")
+
+
+class AddCategory(LoginRequiredMixin, RedirectToPreviousMixin, generic.CreateView):
+    """Class to handle adding a blog categories for users"""
+
+    model = Category
+    template_name = "blog/add_category.html"
+    fields = "__all__"
