@@ -16,6 +16,7 @@ class Category(models.Model):
         unique=True,
         default="uncategorised",
     )
+    slug = models.SlugField(max_length=200, unique=True)
     description = TinyMCE.HTMLField()
 
     def __str__(self):

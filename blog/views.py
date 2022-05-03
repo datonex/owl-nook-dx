@@ -4,7 +4,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Category
+from django.db.models import Q
 
+# https://stackoverflow.com/questions/2546575/how-to-update-the-filename-of-a-djangos-filefield-instance
 # https://cpadiernos.github.io/function-based-views-and-their-class-based-view-equivalents-in-django-part-one.html
 
 
@@ -43,8 +45,8 @@ class PostList(generic.ListView):
         infinite scrolling bug when class based pagination is used
         """
         queryset = Post.objects.filter(status=1).order_by("-created_on")
-        page_number = request.GET.get("page", 4)
-        paginator = Paginator(queryset, 1)
+        page_number = request.GET.get("page", 1)
+        paginator = Paginator(queryset, 10)
 
         try:
             queryset = paginator.page(page_number)
@@ -62,12 +64,13 @@ class PostDetail(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         posted = queryset.latest("created_on")
+        template = "blog/post_detail.html"
 
         context = {
             "post": post,
             "posted": posted,
         }
-        return render(request, "blog/post_detail.html", context)
+        return render(request, template, context)
 
 
 class AddPost(LoginRequiredMixin, generic.CreateView):
@@ -119,3 +122,33 @@ class AddCategory(LoginRequiredMixin, RedirectToPreviousMixin, generic.CreateVie
     model = Category
     template_name = "blog/add_category.html"
     fields = "__all__"
+
+
+class CategoryPostList(generic.ListView):
+    """List view to display posts with specific category"""
+
+    template_name = "blog/category.html"
+
+    def get(self, request, slug):
+        category = get_object_or_404(Category, slug=slug)
+        category_posts = Post.objects.filter(status=1, category=category)
+        print(category_posts)
+
+        queryset = category_posts
+        page_number = request.GET.get("page", 1)
+        paginator = Paginator(queryset, 10)
+
+        try:
+            queryset = paginator.page(page_number)
+        except PageNotAnInteger:
+            queryset = paginator.page(1)
+        except EmptyPage:
+            queryset = paginator.page(paginator.num_pages)
+
+        context = {
+            "category": category,
+            "category_posts": category_posts,
+            "page_post": queryset,
+        }
+
+        return render(request, self.template_name, context)

@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}"/>
+{% endblock %}
+
+{% block extrajs %}
+  <script type="text/javascript" src="{% static 'blog/js/lib/Waypoints/jquery.waypoints.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'blog/js/lib/Waypoints/infinite.min.js' %}"></script>
+{% endblock %}
+
+{% block extra_title %}|Category:{{ category }}{% endblock %}
+
+{% block content %}
+<div class="container home-posts">
+  <h1 class="text-capitalize">Category: {{ category }}</h1>
+  <!-- Blog entries-->
+  <div class="row">
+    <!-- Featured posts -->
+    <div class="col">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Featured blog post-->
+          <div class="card mb-4 bg-dark text-white featured-post">
+            {% comment %} prettier-ignore {% endcomment %}
+            {% if "placeholder" in category_posts.0.featured_image.url %}
+              <img class="card-img" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg"/>
+            {% else %}
+              <img class="card-img" src="{{ category_posts.0.featured_image.url }}"/>
+            {% endif %}
+            <div class="card-img-overlay d-flex align-items-baseline flex-column justify-content-end">
+              <p class="badge bg-light text-navy fw-light">{{ category_posts.0.category }}</p>
+              <h2 class="card-title h2">{{ category_posts.0.title }}</h2>
+              <p class="small text-muted text-white">
+                {{ category_posts.0.author }}
+                |
+                {{ category_posts.0.created_on }}
+              </p>
+              <a class="btn btn-grey d-flex align-items-center justify-content-between" href="{% url 'post_detail' category_posts.0.slug %}">
+                Read more
+                <i class="fa fa-chevron-right d-flex align-items-center justify-content-between" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card mb-4 bg-navy border-grey-60">
+            <div class="card-body d-flex flex-column justify-content-center align-content-center" style="height: 300px;">
+              {% if user.is_authenticated %}
+              <div class="text-center fw-bolder mb-1 text-capitalize overflow-auto">
+                {{ category.description|safe }}
+              </div>
+              <div class="text-center mb-3">
+                <a class="btn btn-coral" href="{% url 'home' %}" role="button">Home</a>
+              </div>
+              {% else %}
+                <h5 class="fw-bolder mb-1 text-capitalize text-center">Register to read full post</h5>
+                <hr class="title-hr text-center ms-auto me-auto mb-4">
+                <div class="text-center mb-3">
+                  <a class="btn btn-coral" href="{% url 'account_signup' %}" role="button">Register</a>
+                </div>
+                <div class="text-center">
+                  Already a member?
+                  <a class="link-coral" href="{% url 'account_login' %}" role="button">Login</a>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="mb-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Nested row for non-featured blog posts large screens-->
+      <div class="row infinite-container">
+        {% for post in category_posts %}
+          <div class="card-group col-lg-6 infinite-item text-navy">
+            <!-- Blog post-->
+            <div class="card mb-4 bg-white">
+              <a href="{% url 'post_detail' post.slug %}" class="main-post">
+                {% if "placeholder" in post.featured_image.url %}
+                  <img class="card-img-top" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/imadnfnd5k4y1pgaw9xu.jpg"/>
+                {% else %}
+                  <img class="card-img-top" src=" {{ post.featured_image.url }}"/>
+                {% endif %}
+              </a>
+
+              <div class="card-body">
+                <div class="small text-muted">{{ post.author }}
+                  |
+                  {{ post.created_on }}</div>
+                <h2 class="card-title h4">{{ post.title }}</h2>
+                <p class="card-text">{{ post.excerpt }}
+                  ...</p>
+              </div>
+              <div class="card-footer d-flex justify-content-between align-items-center">
+                <a class="btn btn-grey d-flex align-items-center justify-content-between" href="{% url 'post_detail' post.slug %}">Read more
+                  <i class="fa fa-chevron-right d-flex align-items-center justify-content-between" aria-hidden="true"></i>
+                </a>
+                <small class="badge bg-coral-20 text-navy fw-light">{{ post.category }}</small>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="d-flex justify-content-center">
+        <div id="loading" class="spinner-border mx-auto" role="status" style="display: none;">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        {% if page_post.has_next %}
+          <a class="infinite-more-link btn btn-coral" href="?page={{ page_post.next_page_number }}" type="button">
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Side widgets-->
+    <div class="col-lg-4">
+      <!-- Search widget-->
+      <div class="card mb-4 bg-navy border-grey-60">
+        <div class="card-header bg-grey-20">Search</div>
+        <div class="card-body">
+          <form action="" method="GET">
+            <div class="input-group">
+              <input class="form-control" type="text" placeholder="Search Owl Nook..." aria-label="Search Owl Nook..." aria-describedby="button-search"/>
+              <button class="btn btn-coral" id="button-search" type="submit">
+                <span class="icon mt-1">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Categories widget-->
+      <div class="card mb-4 bg-navy border-grey-60">
+        <div class="card-header bg-grey-20">Categories</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!">Web Design</a>
+                </li>
+                <li>
+                  <a href="#!">HTML</a>
+                </li>
+                <li>
+                  <a href="#!">Freebies</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#!">JavaScript</a>
+                </li>
+                <li>
+                  <a href="#!">CSS</a>
+                </li>
+                <li>
+                  <a href="#!">Tutorials</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Side widget-->
+      <div class="card mb-4 bg-navy border-grey-60">
+        <div class="card-header bg-grey-20">Side Widget</div>
+        <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block postload_js %}
+  <script type="text/javascript">
+    /** Begin waypoint infinite scrolling */
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('#loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('#loading').hide();
+      }
+    });
+  </script>
+{% endblock %}
