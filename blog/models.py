@@ -16,7 +16,7 @@ class Category(models.Model):
         unique=True,
         default="uncategorised",
     )
-    description = models.TextField(blank=True)
+    description = TinyMCE.HTMLField()
 
     def __str__(self):
         return self.name

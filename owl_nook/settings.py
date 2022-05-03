@@ -191,9 +191,9 @@ TINYMCE_KEY = os.environ.get("TINYMCE_KEY")
 TINYMCE_DEFAULT_CONFIG = {
     "menubar": "edit view insert format tools table help",
     "plugins": "advlist autolink lists link image charmap preview anchor searchreplace visualblocks code "
-    "fullscreen insertdatetime media table paste code help wordcount checklist",
+    "fullscreen insertdatetime media table paste code help wordcount ",
     "toolbar": "undo redo | bold italic underline strikethrough | fontsizeselect formatselect | alignleft "
-    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist "
     "casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
     "fullscreen  preview save | insertfile image media pageembed template link anchor codesample | "
     "a11ycheck ltr rtl | showcomments addcomment code",
