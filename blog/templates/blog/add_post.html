@@ -44,13 +44,12 @@
         .getElementById('id_slug')
         .value = String(title.replaceAll(' ', '-').toLowerCase());
     });
-    // prettier-ignore
-    categoryURL = "/articles/add_category/"
 
     // Add category page button link on page load
+    let categoryURL = "{% url 'add_category' %}";
 
     document
       .getElementById('div_id_category')
-      .innerHTML += '<div class="text-center mt-2"><a role="button" href="/articles/add_category/" class="btn btn-coral">Add category</a></div>'
+      .innerHTML += `<div class="text-center mt-2"><a role="button" href="${categoryURL}" class="btn btn-coral">Add category</a></div>`;
   </script>
 {% endblock %}
