@@ -159,6 +159,10 @@ input[type="file"],
   border-radius: 0;
 }
 
+.form-select {
+  background-image: url(../img/angle-down.png) !important;
+}
+
 .form-check-input:checked {
   background-color: var(--coral) !important;
   border-color: var(--coral) !important;
