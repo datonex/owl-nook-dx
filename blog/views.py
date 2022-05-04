@@ -1,10 +1,12 @@
 from django.views import generic, View
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post, Category
 from django.db.models import Q
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from .models import Post, Category
 
 # https://stackoverflow.com/questions/2546575/how-to-update-the-filename-of-a-djangos-filefield-instance
 # https://cpadiernos.github.io/function-based-views-and-their-class-based-view-equivalents-in-django-part-one.html
@@ -132,7 +134,6 @@ class CategoryPostList(generic.ListView):
     def get(self, request, slug):
         category = get_object_or_404(Category, slug=slug)
         category_posts = Post.objects.filter(status=1, category=category)
-        print(category_posts)
 
         queryset = category_posts
         page_number = request.GET.get("page", 1)

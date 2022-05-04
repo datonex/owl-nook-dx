@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os, dj_database_url, cloudinary
+import os, dj_database_url
 
 if os.path.isfile("env.py"):
     import env
@@ -88,7 +88,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "blog.context_processors.consts",
+                "blog.contexts.get_categories",
             ],
             "builtins": [
                 "crispy_forms.templatetags.crispy_forms_tags",

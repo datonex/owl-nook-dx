@@ -139,32 +139,11 @@
           <div class="card-header bg-grey-20">Categories</div>
           <div class="card-body">
             <div class="row">
-              <div class="col-sm-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#!">Web Design</a>
-                  </li>
-                  <li>
-                    <a href="#!">HTML</a>
-                  </li>
-                  <li>
-                    <a href="#!">Freebies</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-sm-6">
-                <ul class="list-unstyled mb-0">
-                  <li>
-                    <a href="#!">JavaScript</a>
-                  </li>
-                  <li>
-                    <a href="#!">CSS</a>
-                  </li>
-                  <li>
-                    <a href="#!">Tutorials</a>
-                  </li>
-                </ul>
-              </div>
+              {% for category in categories %}
+                <div class="col-auto mb-3">
+                  <a class="badge bg-light text-navy fw-light fs-6 text-decoration-none" href="{% url 'category_view' category.slug %}">{{ category.name }}</a>
+                </div>
+              {% endfor %}
             </div>
           </div>
         </div>
