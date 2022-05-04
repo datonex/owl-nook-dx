@@ -27,10 +27,10 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=800, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts"
+        User, on_delete=models.CASCADE, related_name="blog_author"
     )
     content = TinyMCE.HTMLField()
-    featured_image = CloudinaryField("image", default="v1640619246/placeholder.jpg")
+    featured_image = CloudinaryField("image", default="placeholder")
     excerpt = models.CharField(max_length=120, blank=False)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
     dislikes = models.ManyToManyField(User, related_name="blog_dislikes", blank=True)
