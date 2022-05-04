@@ -11,50 +11,7 @@
   {{ post.title }}
 {% endblock %}
 
-{% load cloudinary %}
 {% block content %}
-  {% with posts|last as last%}
-  {% if last %}
-    <div class="modal" tabindex="-1" id="upload-success">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Upload Successful</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-            <div class="results">
-              {% if last.errors %}
-                Errors:
-                {{ last.errors }}
-              {% else %}
-                <div class="uploaded_info">
-                  <div class="data">
-                    <table>
-                      {% for key, value in last.featured_image.metadata.items %}
-                        <tr>
-                          <td>{{ key }}</td>
-                          <td>{{ value }}</td>
-                        </tr>
-                      {% endfor %}
-                    </table>
-                  </div>
-                  <div class="image">
-                    {% cloudinary last.featured_image THUMBNAIL %}
-                  </div>
-                </div>
-              {% endif %}
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  {% endif %}
-  {% endwith %}
   <div class="container mt-5">
     <div class="row d-flex flex-column align-items-center">
       <div class="col-lg-8">
