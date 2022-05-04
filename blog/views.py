@@ -1,13 +1,14 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.db.models import Q
-from django.http import HttpResponse
+from django.template.defaultfilters import slugify
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Post, Category
 
+# https://github.com/skorokithakis/shortuuid
 # https://stackoverflow.com/questions/2546575/how-to-update-the-filename-of-a-djangos-filefield-instance
 # https://cpadiernos.github.io/function-based-views-and-their-class-based-view-equivalents-in-django-part-one.html
 
@@ -101,7 +102,6 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
     model = Post
     fields = (
         "title",
-        "slug",
         "featured_image",
         "category",
         "content",

@@ -35,13 +35,21 @@
     });
     // update slug
     // https://www.w3schools.com/jsref/jsref_replace.asp
+    // https://www.30secondsofcode.org/js/s/slugify
+    const slugify = str => str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
     $('#id_title').on('keyup', function () {
       let title = document
         .getElementById('id_title')
         .value;
       document
         .getElementById('id_slug')
-        .value = String(title.replaceAll(' ', '-').toLowerCase());
+        .value = slugify(title);
     });
 
     // Add category page button link on page load
