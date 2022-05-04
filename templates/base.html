@@ -110,12 +110,17 @@
                 </span>
               </a>
             </li>
-            <li class="nav-item px-2 mx-1">
-              <a href="#" aria-label="user profile" role="button" class="nav-link">
+            <li class="nav-item dropdown">
+              <button class="btn btn-outline-navy px-2 mx-1" aria-label="user menu" id="dropdownMenuLarge" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="icon">
                   <i class="fa-solid fa-user text-coral"></i>
                 </span>
-              </a>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLarge">
+                <li>
+                  <a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a>
+                </li>
+              </ul>
             </li>
           </ul>
           <!-- user not authenticated -->
