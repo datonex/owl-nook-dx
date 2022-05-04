@@ -30,7 +30,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
     content = TinyMCE.HTMLField()
-    featured_image = CloudinaryField("image", default="placeholder")
+    featured_image = CloudinaryField("image", default="v1640619246/placeholder.jpg")
     excerpt = models.CharField(max_length=120, blank=False)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
     dislikes = models.ManyToManyField(User, related_name="blog_dislikes", blank=True)
