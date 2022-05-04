@@ -44,19 +44,21 @@
                 </div>
               </div>
             </header>
-            <div class="col d-flex ">
-              <div class="mb-4 pe-2">
-                <a class="btn btn-success d-flex align-items-center justify-content-between" href="{% url 'edit_post' post.pk %}">
-                  Edit
-                </a>
+            {% if user.id == post.author.id %}
+              <div class="col d-flex ">
+                <div class="mb-4 pe-2">
+                  <a class="btn btn-success d-flex align-items-center justify-content-between" href="{% url 'edit_post' post.pk %}">
+                    Edit
+                  </a>
+                </div>
+                <div class="mb-4 ps-2">
+                  <button class="btn btn-danger d-flex align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#id-delete-{{ post.pk }}">
+                    Delete
+                  </button>
+                  {% include 'blog/includes/delete_post.html'%}
+                </div>
               </div>
-              <div class="mb-4 ps-2">
-                <button class="btn btn-danger d-flex align-items-center justify-content-between" data-bs-toggle="modal" data-bs-target="#id-delete-{{ post.pk }}">
-                  Delete
-                </button>
-                {% include 'blog/includes/delete_post.html'%}
-              </div>
-            </div>
+            {% endif %}
             <!-- Preview image figure-->
             <figure class="mb-4">
               {% if "placeholder" in post.featured_image.url %}
