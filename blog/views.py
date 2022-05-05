@@ -1,12 +1,13 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.db.models import Q
-from django.shortcuts import render, reverse, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 from .models import Post, Category
+from .forms import CommentForm
 
 # https://github.com/skorokithakis/shortuuid
 # https://stackoverflow.com/questions/2546575/how-to-update-the-filename-of-a-djangos-filefield-instance
@@ -63,8 +64,9 @@ class PostList(generic.ListView):
 class PostDetail(View):
     """Class to return post details, including handling comments, and like/dislikes"""
 
+    template_name = "blog/post_detail.html"
+
     def get(self, request, slug, *args, **kwargs):
-        template = "blog/post_detail.html"
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -75,8 +77,34 @@ class PostDetail(View):
             "post": post,
             "posted": posted,
             "comments": comments,
+            "comment_form": CommentForm(),
         }
-        return render(request, template, context)
+        return render(request, self.template_name, context)
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.filter(approved=True).order_by("-created_on")
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.name = request.user
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect(request.META["HTTP_REFERER"])
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            self.template_name,
+            {
+                "post": post,
+                "comments": comments,
+                "comment_form": comment_form,
+            },
+        )
 
 
 class AddPost(LoginRequiredMixin, generic.CreateView):
@@ -165,7 +193,7 @@ class CategoryPostList(generic.ListView):
         return render(request, self.template_name, context)
 
 
-class UserDraftPostList(LoginRequiredMixin, generic.ListView):
+class UserDraftPostList(generic.ListView):
     """List view to display drafts for current user"""
 
     template_name = "blog/drafts.html"
