@@ -21,3 +21,13 @@
     var(--navy)
   );
 }
+.user-icon {
+  font-size: 1.5rem;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: var(--coral);
+}

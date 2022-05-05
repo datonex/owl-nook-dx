@@ -27,7 +27,9 @@
               <div class="d-flex justify-content-between">
                 <div class="d-flex">
                   <div class="flex-shrink-0">
-                    <img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/>
+                    <span class="user-icon">
+                      {% include 'blog/includes/profile_svg.html' %}
+                    </span>
                   </div>
                   <div class="text-muted fst-italic ms-3">
                     <div class="fw-bold">{{ post.author }}</div>
@@ -105,59 +107,65 @@
                     <i class="fas fa-thumbs-down"></i>
                   </button>
                 {% endif %}
+                <a class="btn btn-navy">
+                  <span class="icon d-flex align-content-center justify-content-between">
+                    <i class="fa-regular fa-comments text-coral"></i>
+                    {% with comments.count as total_comments %}
+                    <p class="mb-0 ms-2 text-white fs-6">{{ total_comments }}</p>
+                    {% endwith %}
+                  </span>
+                </a>
               </div>
-              <div></div>
             </form>
           </div>
         </section>
         {% if user.is_authenticated %}
           <!-- Comments section-->
           <section class="mb-5">
-            <div class="card bg-light">
+            <div class="card bg-grey-20">
               <div class="card-body">
+                <div class="card-header">
+                  <h4>Comments</h4>
+                </div>
                 <!-- Comment form-->
-                <form class="mb-4">
+                <form method="" action="" class="mb-4">
                   <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                  <div class="d-flex justify-content-end">
+                    <button class="btn btn-coral mt-4" type="submit">Comment</button>
+                  </div>
                 </form>
                 <!-- Comment with nested comments-->
-                <div class="d-flex mb-4">
-                  <!-- Parent comment-->
-                  <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                  <div class="ms-3">
-                    <div class="fw-bold">Commenter Name</div>
-                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                    <!-- Child comment 1-->
-                    <div class="d-flex mt-4">
-                      <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
+                {% if comments %}
+                  {% for comment in comments %}
+                    <div class="d-flex mb-4">
+                      <!-- Parent comment-->
+                      <div class="flex-shrink-0">
+                        <span class="user-icon">
+                          {% include 'blog/includes/profile_svg.html' %}
+                        </span>
+                      </div>
                       <div class="ms-3">
-                        <div class="fw-bold">Commenter Name</div>
-                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
+                        <div class="rounded bg-grey-20 p-2">
+                          <div class="link-coral mb-2">
+                            <p class="text-coral">{{ comment.name }}</p>
+                            <p class="text-white">{{ comment.created_on }}</p>
+                          </div>
+                          <div>
+                            {{ comment.body | linebreaks }}
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <!-- Child comment 2-->
-                    <div class="d-flex mt-4">
-                      <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                      <div class="ms-3">
-                        <div class="fw-bold">Commenter Name</div>
-                        When you put money directly to a problem, it makes a good headline.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Single comment-->
-                <div class="d-flex">
-                  <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..."/></div>
-                  <div class="ms-3">
-                    <div class="fw-bold">Commenter Name</div>
-                    When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        {% endif %}
-      </div>
+                  {% endfor %}
+                {% else %}
 
+                {% endif %}
+
+              </div>
+            </section>
+          {% endif %}
+        </div>
+
+      </div>
     </div>
-  </div>
-{% endblock %}
+  {% endblock %}

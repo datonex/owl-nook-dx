@@ -64,14 +64,17 @@ class PostDetail(View):
     """Class to return post details, including handling comments, and like/dislikes"""
 
     def get(self, request, slug, *args, **kwargs):
+        template = "blog/post_detail.html"
+
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         posted = queryset.latest("created_on")
-        template = "blog/post_detail.html"
+        comments = post.comments.filter(approved=True).order_by("created_on")
 
         context = {
             "post": post,
             "posted": posted,
+            "comments": comments,
         }
         return render(request, template, context)
 
