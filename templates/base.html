@@ -118,6 +118,9 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLarge">
                 <li>
+                  <a class="dropdown-item" href="{% url 'draft_view' user.id %}">Drafts</a>
+                </li>
+                <li>
                   <a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a>
                 </li>
               </ul>

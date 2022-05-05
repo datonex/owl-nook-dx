@@ -1,10 +1,10 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.db.models import Q
-from django.template.defaultfilters import slugify
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 from .models import Post, Category
 
@@ -17,7 +17,7 @@ class RedirectToPreviousMixin:
     # https://stackoverflow.com/questions/62626660/redirect-back-to-previous-page-django
     """
     Redirection class to return to page the user came form after form
-    submition, if no previous page exists, user will be redirected to
+    submission, if no previous page exists, user will be redirected to
     home page
     """
 
@@ -47,7 +47,7 @@ class PostList(generic.ListView):
         function that paginates queries. Used only to fix waypoint
         infinite scrolling bug when class based pagination is used
         """
-        queryset = Post.objects.filter(status=1).order_by("-created_on")
+        queryset = self.queryset
         page_number = request.GET.get("page", 1)
         paginator = Paginator(queryset, 10)
 
@@ -102,12 +102,19 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
     model = Post
     fields = (
         "title",
+        "slug",
         "featured_image",
         "category",
         "content",
         "status",
     )
     template_name = "blog/edit_post.html"
+
+    def get_success_url(self):
+        if self.request.POST["status"] == 1:
+            return reverse("post_detail", args=[self.request.POST["slug"]])
+        else:
+            return reverse_lazy("draft_view", args=[self.request.user.id])
 
 
 class DeletePost(LoginRequiredMixin, generic.DeleteView):
@@ -149,6 +156,34 @@ class CategoryPostList(generic.ListView):
         context = {
             "category": category,
             "category_posts": category_posts,
+            "page_post": queryset,
+        }
+
+        return render(request, self.template_name, context)
+
+
+class UserDraftPostList(LoginRequiredMixin, generic.ListView):
+    """List view to display drafts for current user"""
+
+    template_name = "blog/drafts.html"
+
+    def get(self, request, pk):
+        drafts = Post.objects.filter(status=0, author=pk)
+
+        queryset = drafts
+        page_number = request.GET.get("page", 1)
+        paginator = Paginator(queryset, 10)
+
+        try:
+            queryset = paginator.page(page_number)
+        except PageNotAnInteger:
+            queryset = paginator.page(1)
+        except EmptyPage:
+            queryset = paginator.page(paginator.num_pages)
+
+        request.session["from_drafts"] = True
+        context = {
+            "drafts": drafts,
             "page_post": queryset,
         }
 
