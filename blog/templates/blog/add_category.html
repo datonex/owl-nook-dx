@@ -45,5 +45,9 @@
         .getElementById('id_slug')
         .value = String(title.replaceAll(' ', '-').toLowerCase());
     });
+
+    $('#id_name').focus(function () {
+      this.value = ''
+    })
   </script>
 {% endblock %}

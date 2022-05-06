@@ -1,16 +1,17 @@
-from django import forms
+from django.forms import ModelForm
+
 from .models import Comment
 
 
-class CommentForm(forms.ModelForm):
+class CommentForm(ModelForm):
     class Meta:
         model = Comment
         fields = ("body",)
 
     def __init__(self, *args, **kwargs):
         """
-        Initialisation function that adds placeholders and classes and
-        remove auto-generated labels and set autofocus on first field
+        Initialisation function that adds placeholder and
+        remove auto-generated label
         """
 
         super().__init__(*args, **kwargs)
