@@ -35,20 +35,7 @@
 
   <body class="bg-navy text-white">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-navy position-relative">
-      <div class="toast-container position-absolute top-0 start-50 translate-middle-x" style="z-index:200;">
-        {% for message in messages %}
-          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <strong class="me-auto">{{ message.tags }}</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body text-navy">
-              {{ message|safe }}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-navy">
       <div class="container-lg">
         <a class="navbar-brand" href="{% url 'home' %}">
           <img src="{% static 'img/logo/png/logo-coral.png' %}" alt="Owl Nook" class="owlnook-logo"/>
@@ -156,6 +143,36 @@
       </div>
     </nav>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
+    <div class="toast-container mx-auto" style="z-index:200;">
+      {% for message in messages %}
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="icon me-2">
+                {% with message.level as level %}
+                {% if level == 40 %}
+                  <i class="fa-solid fa-triangle-exclamation text-danger"></i>
+                {% elif level == 30 %}
+                  <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+                {% elif level == 25 %}
+                  <i class="fa-solid fa-circle-check text-success"></i>
+                {% else %}
+                  <i class="fa-solid fa-circle-info text-info"></i>
+                {% endif %}
+                {% endwith %}
+              </span>
+              <p class="mb-0">
+                <strong class="me-auto text-navy">{{ message.tags }}</strong>
+              </p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body text-navy">
+            {{ message|safe }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
     {% block content %}{% endblock %}
     {% block postload_js %}{% endblock %}
     <script type="text/javascript">
