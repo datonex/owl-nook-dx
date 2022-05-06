@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os, dj_database_url
+from django.contrib.messages import constants as messages
 
 if os.path.isfile("env.py"):
     import env
@@ -121,6 +122,15 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = "/owlet/login/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+
+MESSAGE_TAGS = {
+    messages.DEBUG: "Information",
+    messages.INFO: "Information",
+    messages.SUCCESS: "Success",
+    messages.WARNING: "Warning",
+    messages.ERROR: "Error",
+}
 
 
 WSGI_APPLICATION = "owl_nook.wsgi.application"

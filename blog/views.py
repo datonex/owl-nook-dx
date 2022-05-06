@@ -1,8 +1,9 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
-from django.db.models import Q
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -137,7 +138,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
-class AddPost(LoginRequiredMixin, generic.CreateView):
+class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """Class to handle adding a blog post for users"""
 
     model = Post
@@ -150,6 +151,7 @@ class AddPost(LoginRequiredMixin, generic.CreateView):
         "content",
         "status",
     )
+    success_message = "%(title)s was created successfully"
 
     # https://docs.djangoproject.com/en/3.2/topics/class-based-views/generic-editing/#models-and-request-user
     def form_valid(self, form):
@@ -157,7 +159,7 @@ class AddPost(LoginRequiredMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-class EditPost(LoginRequiredMixin, generic.UpdateView):
+class EditPost(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     """Class to handle editing a blog post for users"""
 
     model = Post
@@ -170,6 +172,7 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
         "status",
     )
     template_name = "blog/edit_post.html"
+    success_message = "%(title)s was edited successfully"
 
     def get_success_url(self):
         if self.request.POST["status"] == 1:
@@ -178,20 +181,25 @@ class EditPost(LoginRequiredMixin, generic.UpdateView):
             return reverse_lazy("draft_view", args=[self.request.user.id])
 
 
-class DeletePost(LoginRequiredMixin, generic.DeleteView):
+class DeletePost(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     """Class to handle deleting their blog post for users"""
 
     model = Post
     template_name = "blog/includes/delete_post.html"
     success_url = reverse_lazy("home")
+    success_message = "%(title)s was deleted successfully"
 
 
-class AddCategory(LoginRequiredMixin, RedirectToPreviousMixin, generic.CreateView):
+class AddCategory(
+    LoginRequiredMixin, RedirectToPreviousMixin, SuccessMessageMixin, generic.CreateView
+):
     """Class to handle adding a blog categories for users"""
 
     model = Category
     template_name = "blog/add_category.html"
     fields = "__all__"
+
+    success_message = "%(name)s was created successfully"
 
 
 class CategoryPostList(generic.ListView):

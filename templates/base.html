@@ -35,7 +35,20 @@
 
   <body class="bg-navy text-white">
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-navy">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-navy position-relative">
+      <div class="toast-container position-absolute top-0 start-50 translate-middle-x" style="z-index:200;">
+        {% for message in messages %}
+          <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <strong class="me-auto">{{ message.tags }}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body text-navy">
+              {{ message|safe }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
       <div class="container-lg">
         <a class="navbar-brand" href="{% url 'home' %}">
           <img src="{% static 'img/logo/png/logo-coral.png' %}" alt="Owl Nook" class="owlnook-logo"/>
@@ -145,6 +158,11 @@
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
     {% block content %}{% endblock %}
     {% block postload_js %}{% endblock %}
+    <script type="text/javascript">
+      $(function () {
+        $('.toast').toast('show');
+      });
+    </script>
   </body>
 
 </html>
