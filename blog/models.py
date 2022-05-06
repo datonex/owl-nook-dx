@@ -33,7 +33,6 @@ class Post(models.Model):
     featured_image = CloudinaryField("image", default="placeholder")
     excerpt = models.CharField(max_length=120, blank=False)
     likes = models.ManyToManyField(User, related_name="blog_likes", blank=True)
-    dislikes = models.ManyToManyField(User, related_name="blog_dislikes", blank=True)
     bookmark = models.ManyToManyField(User, related_name="blog_bookmarks", blank=True)
     category = models.ForeignKey(
         Category,
@@ -60,9 +59,6 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
-    def number_of_dislikes(self):
-        return self.dislikes.count()
 
     # https://realpython.com/django-redirects/
     def get_absolute_url(self):

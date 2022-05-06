@@ -1,6 +1,7 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -67,15 +68,19 @@ class PostDetail(View):
     template_name = "blog/post_detail.html"
 
     def get(self, request, slug, *args, **kwargs):
-
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         posted = queryset.latest("created_on")
         comments = post.comments.filter(approved=True).order_by("created_on")
+        liked = False
+
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         context = {
             "post": post,
             "posted": posted,
+            "liked": liked,
             "comments": comments,
             "comment_form": CommentForm(),
         }
@@ -85,6 +90,12 @@ class PostDetail(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
+
+        liked = False
+
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -101,10 +112,29 @@ class PostDetail(View):
             self.template_name,
             {
                 "post": post,
+                "liked": liked,
                 "comments": comments,
                 "comment_form": comment_form,
             },
         )
+
+
+class PostLike(View):
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug)
+        username = request.user
+
+        if post.likes.filter(id=username.id).exists():
+            post.likes.remove(username)
+        else:
+            post.likes.add(username)
+
+        if post.dislikes.filter(id=username.id).exists():
+            post.dislikes.remove(username)
+        else:
+            post.dislikes.add(username)
+
+        return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
 class AddPost(LoginRequiredMixin, generic.CreateView):
