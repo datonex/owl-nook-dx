@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrajs %}
+  <script type="text/javascript" src="{% static 'blog/js/lib/Waypoints/jquery.waypoints.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'blog/js/lib/Waypoints/infinite.min.js' %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}"/>
+{% endblock %}
+
+{% block extra_title %}| Search
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row infinity-container">
+      {% for post in posts %}
+        <div class="col-md-6 text-navy infinite-item">
+          <div class="card mb-3">
+            <div class="row">
+              <div class="col-4">
+                <a href="{% url 'edit_post' post.id %}" class="main-post">
+                  {% if "placeholder" in post.featured_image.url %}
+                    <img class="img-fluid" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg"/>
+                  {% else %}
+                    <img class="img-fluid" src=" {{ post.featured_image.url }}"/>
+                  {% endif %}
+                </a>
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                  <div class="small text-muted">{{ post.author }}
+                    |
+                    {{ post.created_on }}
+                  </div>
+                  <h2 class="card-title h4">{{ post.title }}</h2>
+                  <p class="card-text">
+                    {{ post.excerpt }}
+                    ...
+                  </p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                  <a class="btn btn-grey d-flex align-items-center justify-content-between" href="{% url 'post_detail' posts.1.slug %}">Read more
+                    <i class="fa fa-chevron-right d-flex align-items-center justify-content-between" aria-hidden="true"></i>
+                  </a>
+                  <small class="badge bg-coral-20 text-navy fw-light">{{ post.category }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="d-flex justify-content-center">
+      <div id="loading" class="spinner-border mx-auto" role="status" style="display: none;">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      {% if page_post.has_next %}
+        <a class="infinite-more-link btn btn-coral" href="?page={{ page_post.next_page_number }}" type="button"></a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+{% block postload_js %}
+  <script type="text/javascript">
+    /** Begin waypoint infinite scrolling */
+    var infinite = new Waypoint.Infinite({
+      element: $('.infinite-container')[0],
+      onBeforePageLoad: function () {
+        $('#loading').show();
+      },
+      onAfterPageLoad: function ($items) {
+        $('#loading').hide();
+      }
+    });
+  </script>
+{% endblock %}

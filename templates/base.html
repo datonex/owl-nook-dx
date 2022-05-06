@@ -70,7 +70,7 @@
                   </button>
                 </div>
                 <div class="offcanvas-body">
-                  <form method="GET" action="">
+                  <form method="GET" action="{% url 'search' %}">
                     <div class="d-grid gap-2">
                       <input class="form-control bg-navy text-start border border-1 text-white" name="q" type="text" placeholder="Search Owl Nook" aria-label="Search Owl nook"/>
                       <button class="btn btn-outline-navy" type="submit" aria-label="search">
@@ -94,7 +94,7 @@
             {% include 'includes/mobile_menu.html' %}
           </div>
           <div class="navbar-nav d-none d-sm-flex mx-auto">
-            <form method="GET" action="">
+            <form method="GET" action="{% url 'search' %}">
               <div class="input-group w-100">
                 <div class="d-grid gap-1">
                   <input class="form-control bg-navy text-start border-0" name="q" type="text" placeholder="Search Owl Nook" aria-label="Search Owl nook"/>

@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -257,3 +258,45 @@ class UserDraftPostList(generic.ListView):
         }
 
         return render(request, self.template_name, context)
+
+
+def search(request):
+    """search query handler"""
+
+    template = "blog/search.html"
+    total_posts = 0
+    query = None
+    posts = Post.objects.filter(status=1)
+
+    if "q" in request.GET:
+        query = request.GET["q"]
+        if not query:
+            messages.error(request, ("You didn't enter any search criteria!"))
+            return redirect(reverse("home"))
+
+        queries = (
+            Q(title__icontains=query)
+            | Q(author__username__icontains=query)
+            | Q(category__name__icontains=query)
+        )
+        posts = posts.filter(queries)
+        total_posts = posts.count()
+
+    page_number = request.GET.get("page", 1)
+    paginator = Paginator(posts, 60)
+
+    try:
+        posts = paginator.page(page_number)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        "posts": posts,
+        "search_query": query,
+        "total_posts": total_posts,
+        "page_post": posts,
+    }
+
+    return render(request, template, context)

@@ -81,7 +81,7 @@
         <section class="mb-5"></section>
         <!-- Categories section-->
         <section class="mb-5">
-          <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ post.category}}</a>
+          <a class="badge bg-light text-decoration-none link-dark fs-6 fw-light" href="{% url 'category_view' post.category.slug %}">{{ post.category}}</a>
         </section>
         {% if user.is_authenticated %}
         
