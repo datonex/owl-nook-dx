@@ -147,8 +147,9 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     fields = (
         "title",
         "slug",
-        "featured_image",
+        "excerpt",
         "category",
+        "featured_image",
         "content",
         "status",
     )
@@ -167,6 +168,7 @@ class EditPost(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     fields = (
         "title",
         "slug",
+        "excerpt",
         "featured_image",
         "category",
         "content",

@@ -132,6 +132,10 @@ body {
   width: 1.5rem;
 }
 
+.post-content p > a,
+.post-content em > a,
+.post-content div > a,
+.post-content span > a,
 .link-coral {
   color: var(--coral) !important;
 }
