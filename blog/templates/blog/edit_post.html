@@ -39,13 +39,22 @@
     });
     // update slug
     // https://www.w3schools.com/jsref/jsref_replace.asp
+    // https://www.30secondsofcode.org/js/s/slugify
+
+    const slugify = str => str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
     $('#id_title').on('keyup', function () {
       let title = document
         .getElementById('id_title')
         .value;
       document
         .getElementById('id_slug')
-        .value = String(title.replaceAll(' ', '-').toLowerCase());
+        .value = slugify(title);
     });
 
     $(function () {
@@ -54,5 +63,12 @@
         $("div.input-group")[1]
         .innerHTML = `<img width="100" height="100" class="rounded shadow-sm" src="${currentImageLink}"/>`
     });
+
+    // Add category page button link on page load
+    let categoryURL = "{% url 'add_category' %}";
+
+    document
+      .getElementById('div_id_category')
+      .innerHTML += `<div class="text-center mt-2"><a role="button" href="${categoryURL}" class="btn btn-coral">Add category</a></div>`;
   </script>
 {% endblock %}
