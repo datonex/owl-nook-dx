@@ -7,7 +7,7 @@ from tinymce.widgets import TinyMCE
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     class Media:
-        js = "js/tinyInject.js"
+        js = ("js/tinyInject.js",)
 
     list_display = (
         "author",
