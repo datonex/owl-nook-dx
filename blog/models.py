@@ -82,14 +82,3 @@ class Comment(models.Model):
 
     def number_of_comments(self):
         return self.post.count()
-
-
-class Bookmark(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    description = models.TextField(blank=True)
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="bookmark_posts"
-    )
-
-    def __str__(self):
-        return self.name
