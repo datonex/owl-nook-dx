@@ -1,15 +1,16 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from django.db.models import Q
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.forms import UserChangeForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 from blog.models import Post
+from .forms import EditProfileForm
 
 
 class UserDraftPostList(LoginRequiredMixin, generic.ListView):
@@ -85,3 +86,13 @@ class UserPostBookmarkList(LoginRequiredMixin, generic.ListView):
         else:
             messages.error(request, "This is not your account")
             return HttpResponseRedirect("/")
+
+
+class UserEditProfile(generic.UpdateView, SuccessMessageMixin):
+    form_class = EditProfileForm
+    template_name = "owlet/edit_profile.html"
+    success_message = "User has been updated"
+    success_url = reverse_lazy("home")
+
+    def get_object(self):
+        return self.request.user

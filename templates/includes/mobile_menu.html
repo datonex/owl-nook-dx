@@ -34,11 +34,11 @@
     </li>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
     <li class="nav-item px-2 mx-1 mb-2">
-      <a href="#" aria-label="user profile" role="button" class="nav-link d-flex align-content-center">
+      <a href="{% url 'edit_profile' user.id %}" aria-label="user profile" role="button" class="nav-link d-flex align-content-center">
         <span class="icon pe-3">
           <i class="fa-solid fa-user text-coral"></i>
         </span>
-        <p class="mb-0">My Account</p>
+        <p class="mb-0">Edit profile</p>
       </a>
     </li>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
