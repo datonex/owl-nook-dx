@@ -75,14 +75,18 @@ class PostDetail(View):
         posted = queryset.latest("created_on")
         comments = post.comments.filter(approved=True).order_by("created_on")
         liked = False
+        bookmarked = False
 
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+        if post.bookmark.filter(id=self.request.user.id).exists():
+            bookmarked = True
 
         context = {
             "post": post,
             "posted": posted,
             "liked": liked,
+            "bookmarked": bookmarked,
             "comments": comments,
             "comment_form": CommentForm(),
         }
@@ -94,10 +98,12 @@ class PostDetail(View):
         comments = post.comments.filter(approved=True).order_by("-created_on")
 
         liked = False
+        bookmarked = False
 
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-
+        if post.bookmark.filter(id=self.request.user.id).exists():
+            bookmarked = True
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -115,13 +121,16 @@ class PostDetail(View):
             {
                 "post": post,
                 "liked": liked,
+                "bookmarked": bookmarked,
                 "comments": comments,
                 "comment_form": comment_form,
             },
         )
 
 
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
+    """Handler to add/remove user if post is liked"""
+
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
         username = request.user
@@ -130,11 +139,6 @@ class PostLike(View):
             post.likes.remove(username)
         else:
             post.likes.add(username)
-
-        if post.dislikes.filter(id=username.id).exists():
-            post.dislikes.remove(username)
-        else:
-            post.dislikes.add(username)
 
         return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
