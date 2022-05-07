@@ -15,7 +15,8 @@ urlpatterns = [
     path("bookmark/<slug:slug>/", PostBookmark.as_view(), name="post_bookmark"),
     path("<int:pk>/edit_profile/", UserEditProfile.as_view(), name="edit_profile"),
     path(
-        "<int:pk>/password/",
+        "password/",
         auth_views.PasswordChangeView.as_view(template_name="owlet/edit_password.html"),
+        name="edit_password",
     ),
 ]

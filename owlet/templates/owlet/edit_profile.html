@@ -8,7 +8,22 @@
     <h2 class="fw-bolder mb-1 text-capitalize text-center">{{ user.username }}</h2>
     <hr class="title-hr text-center ms-auto me-auto mb-4">
     <div class="row">
-      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="card mb-4 bg-navy border-grey-60">
+          <div class="card-body">
+            <h5 class="fw-bolder mb-1 text-capitalize text-center">Change Profile</h5>
+            <hr class="title-hr text-center ms-auto me-auto mb-4">
+            <div class="d-grid gap-2">
+              <a class="btn btn-coral" role="button" href="{% url 'edit_profile' user.id %}">
+                Edit Profile
+              </a>
+              <a class="btn btn-coral" role="button" href="{% url 'edit_password' %}">
+                Change Password
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-md-8">
         <div class="form-group bg-white-20 rounded p-4">
           <form method="post" action="{% url 'edit_profile' user.id %}">
