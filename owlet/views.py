@@ -1,11 +1,10 @@
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, reverse, get_object_or_404, redirect
+from django.shortcuts import render, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.forms import UserChangeForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
