@@ -140,6 +140,11 @@ body {
   color: var(--coral) !important;
 }
 
+li,
+#hint_id_username {
+  color: white !important;
+}
+
 .link-coral:focus,
 .link-coral:hover {
   color: var(--coral-40) !important;
