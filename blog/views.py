@@ -1,3 +1,4 @@
+from email import message
 from django.views import generic, View
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
@@ -7,6 +8,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.template.defaultfilters import slugify
 
 
 from .models import Post, Category
@@ -207,6 +209,7 @@ class AddCategory(
     fields = "__all__"
 
     success_message = "%(name)s was created successfully"
+    success_url = reverse_lazy("add_post")
 
 
 class CategoryPostList(generic.ListView):
