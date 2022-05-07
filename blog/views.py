@@ -166,6 +166,12 @@ class AddPost(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    def get_success_url(self):
+        if self.request.POST["status"] == 1:
+            return reverse("post_detail", args=[self.request.POST["slug"]])
+        else:
+            return reverse_lazy("draft_view", args=[self.request.user.id])
+
 
 class EditPost(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     """Class to handle editing a blog post for users"""
