@@ -9,7 +9,6 @@ from .views import (
     PostDetail,
     AddPost,
     EditPost,
-    UserDraftPostList,
     search,
 )
 
@@ -27,5 +26,4 @@ urlpatterns = [
         CategoryPostList.as_view(),
         name="category_view",
     ),
-    path("owlet/<int:pk>/drafts/", UserDraftPostList.as_view(), name="draft_view"),
 ]

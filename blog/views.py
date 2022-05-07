@@ -234,34 +234,6 @@ class CategoryPostList(generic.ListView):
         return render(request, self.template_name, context)
 
 
-class UserDraftPostList(generic.ListView):
-    """List view to display drafts for current user"""
-
-    template_name = "blog/drafts.html"
-
-    def get(self, request, pk):
-        drafts = Post.objects.filter(status=0, author=pk)
-
-        queryset = drafts
-        page_number = request.GET.get("page", 1)
-        paginator = Paginator(queryset, 10)
-
-        try:
-            queryset = paginator.page(page_number)
-        except PageNotAnInteger:
-            queryset = paginator.page(1)
-        except EmptyPage:
-            queryset = paginator.page(paginator.num_pages)
-
-        request.session["from_drafts"] = True
-        context = {
-            "drafts": drafts,
-            "page_post": queryset,
-        }
-
-        return render(request, self.template_name, context)
-
-
 def search(request):
     """search query handler"""
 
