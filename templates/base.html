@@ -97,7 +97,7 @@
           </div>
           <ul class="navbar-nav d-none d-sm-flex justify-content-evenly">
             <li class="nav-item px-2 mx-1">
-              <a href="#" aria-label="saved blogs" role="button" class="nav-link">
+              <a href="{% url 'bookmark_view' user.id %}" aria-label="saved blogs" role="button" class="nav-link">
                 <span class="icon">
                   <i class="fa-solid fa-bookmark text-coral"></i>
                 </span>
@@ -117,6 +117,9 @@
                 </span>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuLarge">
+                <li>
+                  <div class="dropdown-item">{{ user.username }}</div>
+                </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'draft_view' user.id %}">Drafts</a>
                 </li>
