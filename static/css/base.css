@@ -164,7 +164,7 @@ input[type="file"],
 }
 
 .form-select {
-  background-image: url(../img/angle-down.png) !important;
+  background-image: url(https://res.cloudinary.com/datonex/image/upload/v1651874563/angle-down_lk0dv0.png) !important;
 }
 
 .form-check-input:checked {
@@ -202,7 +202,7 @@ input[type="file"],
 
 .btn-outline-navy:hover {
   color: white !important;
-  background-color: var(-navyl);
+  background-color: var(--navy);
   border-color: var(--navy);
 }
 
