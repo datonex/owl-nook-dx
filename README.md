@@ -390,6 +390,8 @@ The reading list model was removed from the project and instead was implemented 
 
 - Scroll to top button
 
+- Currently the comments will show all the comments on the page, feature to load a few comments at a time
+
 ## Technologies Used
 
 ### Languages used
@@ -521,29 +523,36 @@ This website was published using [Heroku](https://www.heroku.com/).
 
 ### Content
 
+[Wikipedia](https://en.wikipedia.org/wiki/South_Africa#Culture) - South African culture
+
+[Blog content sources](./README/blog-planning-spreadsheet.pdf) :point_left:
+click to view content sources
+
 ### Media
 
 #### Images
 
 - [Placeholder image](https://www.pexels.com/photo/person-using-macbook-pro-beside-white-ceramic-mug-5052875/) - Pexels, by cottonbro
 
-#### Audio
-
-- audio was obtained from [here](https://linkhere.com)
-
-#### Video
-
-- video was obtained from [here](https://linkhere.com)
-
-### Dependencies + links
+### Dependencies + help links
 
 - [Code Institute](https://codeinstitute.net/) - Full Stack Frameworks module
+
+- [Django-Allauth](https://github.com/pennersr/django-allauth) - Handle user sign in
+
+- [Codemy.com](https://www.youtube.com/playlist?list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) - crate a blog flow
 
 - [Startbootstrap](https://startbootstrap.com/template/blog-home) - bootstrap blog template
 
 - [Startbootstrap](https://github.com/startbootstrap/startbootstrap-blog-home) - bootstrap blog home template
 
+- [StackOverflow](https://stackoverflow.com/questions/16014719/adding-a-jquery-script-to-the-django-admin-interface) Inject js into django admin
+
+- [StackOverflow](https://stackoverflow.com/questions/2005822/django-forms-reload-view-after-post) - redirect user to previous page
+
 - [Vole](https://vole.wtf/text-generator/) - random text generator
+
+- [Techsini](https://techsini.com/multi-mockup/index.php) - Generate live mockup
 
 - [Web fore front](https://www.webforefront.com/django/modeldatatypesandvalidation.html) - Django model data types
 
