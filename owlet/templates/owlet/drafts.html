@@ -33,9 +33,9 @@
                   <div class="card mb-4 bg-white">
                     <a href="{% url 'edit_post' post.id %}" class="main-post">
                       {% if "placeholder" in post.featured_image.url %}
-                        <img class="card-img-top" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg"/>
+                        <img class="card-img-top" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg" alt="woman typing on laptop on desk"/>
                       {% else %}
-                        <img class="card-img-top" src=" {{ post.featured_image.url }}"/>
+                        <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}"/>
                       {% endif %}
                     </a>
                     <div class="card-body">

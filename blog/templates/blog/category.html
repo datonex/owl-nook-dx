@@ -26,9 +26,9 @@
             <div class="card mb-4 bg-dark text-white featured-post">
               {% comment %} prettier-ignore {% endcomment %}
               {% if "placeholder" in category_posts.0.featured_image.url %}
-                <img class="card-img" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg"/>
+                <img class="card-img" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg" alt="woman typing on laptop on desk"/>
               {% else %}
-                <img class="card-img" src="{{ category_posts.0.featured_image.url }}"/>
+                <img class="card-img" src="{{ category_posts.0.featured_image.url }}" alt="{{ category_posts.0.title }}"/>
               {% endif %}
               <div class="card-img-overlay d-flex align-items-baseline flex-column justify-content-end">
                 <p class="badge bg-light text-navy fw-light">{{ category_posts.0.category }}</p>
@@ -83,9 +83,9 @@
               <div class="card mb-4 bg-white">
                 <a href="{% url 'post_detail' post.slug %}" class="main-post">
                   {% if "placeholder" in post.featured_image.url %}
-                    <img class="card-img-top" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg"/>
+                    <img class="card-img-top" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg" alt="woman typing on laptop on desk"/>
                   {% else %}
-                    <img class="card-img-top" src=" {{ post.featured_image.url }}"/>
+                    <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}"/>
                   {% endif %}
                 </a>
 
