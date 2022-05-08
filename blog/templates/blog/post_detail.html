@@ -74,9 +74,9 @@
             <!-- Preview image figure-->
             <figure class="mb-4">
               {% if "placeholder" in post.featured_image.url %}
-                <img class="img-fluid rounded" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg" alt="woman typing on laptop on desk" width="100%">
+                <img class="img-fluid rounded" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg" alt="woman typing on laptop on desk" >
               {% else %}
-                <img class="img-fluid rounded" src=" {{ post.featured_image.url }}" alt="{{ post.title }}" width="100%">
+                <img class="img-fluid rounded" src=" {{ post.featured_image.url }}" alt="{{ post.title }}" >
               {% endif %}
             </figure>
             <!-- Post content-->
