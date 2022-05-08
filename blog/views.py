@@ -67,7 +67,10 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
-    """Class to return post details, including handling comments, and like/dislikes"""
+    """
+    Class to return post details, including handling comments,
+    and like/dislikes
+    """
 
     template_name = "blog/post_detail.html"
 
@@ -206,7 +209,10 @@ class DeletePost(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
 
 
 class AddCategory(
-    LoginRequiredMixin, RedirectToPreviousMixin, SuccessMessageMixin, generic.CreateView
+    LoginRequiredMixin,
+    RedirectToPreviousMixin,
+    SuccessMessageMixin,
+    generic.CreateView
 ):
     """Class to handle adding a blog categories for users"""
 

@@ -20,7 +20,10 @@ urlpatterns = [
     path("articles/search/", search, name="search"),
     path("articles/edit/<int:pk>", EditPost.as_view(), name="edit_post"),
     path("articles/delete/<int:pk>", DeletePost.as_view(), name="delete_post"),
-    path("categories/add_category/", AddCategory.as_view(), name="add_category"),
+    path(
+        "categories/add_category/",
+        AddCategory.as_view(),
+        name="add_category"),
     path(
         "categories/category/<slug:slug>/",
         CategoryPostList.as_view(),
