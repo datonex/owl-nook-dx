@@ -535,7 +535,7 @@ As a registered user I attempted the same steps as as anonymous user and I attem
 
 - [ ] Form validation fails when user logs in, attempts to change password from profile or when user creates duplicate slugs due to None type value being returned.
 
-- [ ] New categories added by user on frontend are not searchable via search bar on front end
+- [x] New categories added by user on frontend are not searchable via search bar on front end - Fixed, template did not account for empty search dictionary
 
 - [x] Not null at category - integrity error -> Fixed-default category was not saved in database, on add post or edit post submission, if user does not set a category this error was received.
 
@@ -551,11 +551,85 @@ As a registered user I attempted the same steps as as anonymous user and I attem
 
 - Other bugs in trello [here](https://trello.com/b/EE8FIF7B) :point_left:
 
+### Python Validation
+
+python validator [Pep8](http://pep8online.com/checkresult)
+
+#### Blog views.py
+
+- Line break warning before operator warnings on line 272 and 273
+
+#### Rest of python files
+
+- Pass
+
 ### CSS3 validator
 
-Pass
+css validator [W3](https://jigsaw.w3.org/css-validator/)
+
+#### Base css
+
+![base css validation](README/validation/base-css.png)
+
+- CSS Value error has now been fixed
+
+- Warnings have not been addressed
+
+#### Blog css
+
+- <a href="http://jigsaw.w3.org/css-validator/check/referer">
+  <img style="border:0;width:88px;height:31px"
+          src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+          alt="Valid CSS!" />
+  </a>
+
+  Passed validation
 
 ### HTML5 Validator
+
+- #### Common Errors + warnings
+
+- Type attribute warning on style element has not been fixed
+
+- Type attribute warning on JavaScript sources element has been fixed
+
+- Cross origin attribute error has been fixed
+
+- `hr` element error in `ul` has been fixed
+
+- `img` elements with no alternative text errors have been fixed
+
+#### Home Page
+
+![homepage html](README/validation/homepage-html.png)
+
+- Errors above are now fixed
+
+#### Articles Page
+
+![articles html](README/validation/articles-html.png)
+
+- Errors and warnings above are now fixed
+
+#### Edit Profile Page
+
+![edit profile html](README/validation/editprofile-html.png)
+
+- Both CSS error not fixed, code is injected from a CDN link
+
+- Type attribute warning on style element has not been fixed
+
+- !DOCTYPE html value exists on page
+
+- Rest of errors have been fixed
+
+#### Bookmarks Page
+
+![bookmarks html](README/validation/bookmarks-html.png)
+
+- CSS errors not fixed, code is injected from a CDN link
+
+- Type attribute warning on style element has not been fixed
 
 ### Compatibility Testing
 
