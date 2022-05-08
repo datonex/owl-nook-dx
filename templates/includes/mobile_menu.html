@@ -1,55 +1,55 @@
 <div class="offcanvas-header">
-  <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h5>
+  <h5 class="offcanvas-title" id="offcanvasScrollingMobileLabel">Menu</h5>
   <button type="button" class="btn btn-outline-navy text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
     <i class="fa-solid fa-xmark text-coral icon"></i>
   </button>
 </div>
 <div class="offcanvas-body">
-  <ul class="navbar-nav justify-content-evenly">
-    <li class="nav-item px-2 mx-1 mb-2">
+  <div class="navbar-nav justify-content-evenly">
+    <div class="nav-item px-2 mx-1 mb-2">
       <a href="{% url 'bookmark_view' user.id %}" aria-label="saved blogs" role="button" class="nav-link d-flex align-content-center">
         <span class="icon pe-3">
           <i class="fa-solid fa-bookmark text-coral"></i>
         </span>
         <p class="mb-0">Reading list</p>
       </a>
-    </li>
+    </div>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
-    <li class="nav-item px-2 mx-1 mb-2">
+    <div class="nav-item px-2 mx-1 mb-2">
       <a href="{% url 'add_post' %}" aria-label="write new blog" role="button" class="nav-link d-flex align-content-center">
         <span class="icon pe-3">
           <i class="fa-solid fa-pen-fancy text-coral"></i>
         </span>
         <p class="mb-0">Write New blog</p>
       </a>
-    </li>
+    </div>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
-    <li class="nav-item px-2 mx-1 mb-2">
+    <div class="nav-item px-2 mx-1 mb-2">
       <a href="{% url 'draft_view' user.id %}" aria-label="write new blog" role="button" class="nav-link d-flex align-content-center">
         <span class="icon pe-3">
           <i class="fa-solid fa-file-pen text-coral"></i>
         </span>
         <p class="mb-0">Drafts</p>
       </a>
-    </li>
+    </div>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
-    <li class="nav-item px-2 mx-1 mb-2">
+    <div class="nav-item px-2 mx-1 mb-2">
       <a href="{% url 'edit_profile' user.id %}" aria-label="user profile" role="button" class="nav-link d-flex align-content-center">
         <span class="icon pe-3">
           <i class="fa-solid fa-user text-coral"></i>
         </span>
         <p class="mb-0">Edit profile</p>
       </a>
-    </li>
+    </div>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
-    <li class="nav-item px-2 mx-1 mb-2">
+    <div class="nav-item px-2 mx-1 mb-2">
       <a href="{% url 'account_logout' %}" aria-label="sign out" role="button" class="nav-link d-flex align-content-center">
         <span class="icon pe-3">
           <i class="fa-solid fa-arrow-right-from-bracket fa-rotate-180 text-coral"></i>
         </span>
         <p class="mb-0">Sign out</p>
       </a>
-    </li>
+    </div>
     <hr class="main-hr text-grey-20 mx-auto mt-1"/>
-  </ul>
+  </div>
 </div>
