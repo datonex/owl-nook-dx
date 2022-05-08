@@ -1,6 +1,6 @@
-# <img src="./README/owl-coral.png" height="50" /> Owl Nook
+# <img src="/README/owl-coral.png" height="50" /> Owl Nook
 
-![Live mockup](./README/live-mockup.png)
+![Live mockup](/README/live-mockup.png)
 
 ## Overview
 
@@ -500,24 +500,150 @@ Pass
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
 This website was published using [Heroku](https://www.heroku.com/).
 
 ### Contribution
 
-1. Firstly you will need to clone this repository by running the `git clone <https://github.com/datonex/owl-nook/>` command
-2. If using VS Code type make sure you have the Git extension installed then type code into your terminal
+This website was published using [Heroku](https://heroku.com/).
 
-3. Make changes to the code and if you think it belongs in here then just submit a pull request
+1. Firstly you will need to clone this repository by running the `git clone <https://github.com/datonex/owl-nook-dx/>` command
+2. If using VS Code type make sure you have th Git extension installed then type above code into your terminal
+3. Navigate to project folder and start a virtual environment with `python3 -m venv .venv`
+4. Activate you virtual environment with `source .venv/bin/activate`
+5. Install dependencies with `pip install -r requirements.txt`
+6. Make changes to the code and if you think it belongs in here then just submit a pull request
+
+### Deployment to heroku
+
+1. Before you begin deployment, create a git repository on github either by manually creating a repository from a template (or a new one)
+
+2. If you have the git hub CLI installed go to the folder you keep your projects and run, `gh repo create <project-name> --public --template <template-name>` This command will automatically initialise your local repository and create your folder for you. If you don't have a template don't enter `--template`
+
+3. Follow step 3 to 5 from contribution
+
+4. Start a django project with `django-admin startproject <project_name> .` the a django app with `python manage.py startapp <appname>`
+
+5. Inside project*name create a new file \_env.py* and put file name in your .gitignore
+
+6. Open _env.py_ and type the variables:
+
+   ```python
+    import os
+    # os.environ["DATABASE_URL"] = ""
+    os.environ["SECRET_KEY"] = "random_secret_key"
+    os.environ["HOSTNAME"] = "host_name"
+    os.environ["CLOUDINARY_URL"] = "cloudinary_api_key"
+    os.environ["DEVELOPMENT"] = "Development_key"
+   ```
+
+7. Locate _settings.py_ in project_name and import the following:
+
+   ```python
+   from pathlib import Path
+   import os, dj_database_url
+
+   if os.path.isfile("env.py"):
+     import env
+   ```
+
+8. Set your environments variables from above where prompted byt comments:
+
+   ```python
+   SECRET_KEY = os.environ.get("SECRET_KEY")
+
+   if "DEVELOPMENT" in os.environ:
+       DEBUG = True
+   else:
+       DEBUG = False
+
+   X_FRAME_OPTIONS = "SAMEORIGIN"
+
+   ALLOWED_HOSTS = [os.environ.get("HOSTNAME")]
+   ```
+
+9. In _INSTALLED_APPS_ input the following packages installed from pip:
+
+   ```python
+   "django.contrib.messages",
+   "cloudinary_storage",
+   "django.contrib.staticfiles",
+   "django.contrib.sites",
+   "allauth",
+   "allauth.account",
+   "cloudinary",
+   "tinymce",
+   "app_name",
+   ```
+
+10. In _TEMPLATES_ inside "DIRS" build your template directories in a tuple:
+
+    ```python
+    TEMPLATES = [
+      {
+          "BACKEND": "django.template.backends.django.DjangoTemplates",
+          "DIRS": [
+              os.path.join(BASE_DIR, "templates"),
+              os.path.join(BASE_DIR, "owlet", "templates", "owlet", "allauth"),
+          ],
+        ...
+      }
+    ]
+    ```
+
+11. To set up your database put in:
+
+    ```python
+    if "DATABASE_URL" in os.environ:
+        DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+    else:
+        DATABASES = {
+            "default": {
+                "ENGINE": "django.db.backends.sqlite3",
+                "NAME": BASE_DIR / "db.sqlite3",
+            }
+        }
+    ```
+
+12. Finally building the static files:
+
+    ```python
+    STATIC_URL = "owlnook-dx/static/"
+    STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+    MEDIA_URL = "/media/"
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+    ```
+
+13. Create a [cloudinary](https://cloudinary.com/) account and get your API environment variable with format `CLOUDINARY_URL=cloudinary://*******************@datonex` from dashboard
+
+14. Create a [Heroku](https://www.heroku.com/) account and login. Create a new app and select region closest to you.
+    ![create app](/README/deployment/create-new-app.png)
+    ![select region](/README/deployment/select-region.png)
+
+15. From Navigation bar click on Resources.
+    ![navbar](/README/deployment/navigation-heroku.png)
+
+16. Add Heroku postgres
+    ![postgresql](/README/deployment/heroku-postgres.png)
+
+17. Sumbit the form prompt
+    ![sumbit-prompt](/README/deployment/submit-form.png)
+
+18. Commit your cahnges to github. then install the Heroku CLI (link is in Deploy from heroku navbar)
+
+19. When Heroku CLI is installed, put in your terminal:
+
+    ```zsh
+      heroku login
+    ```
+
+    To login to Heroku
+
+20. The connect your Git repository with: `heroku git:remote -a some-app-test` then `heroku config:set DEBUG_COLLECTSTATIC=1 --app heroku-app-name` at first deployment
+
+21. Push your changes to heroku with `git push heroku master` or `git push heroku main`
 
 ## Credits
 
@@ -525,7 +651,7 @@ This website was published using [Heroku](https://www.heroku.com/).
 
 [Wikipedia](https://en.wikipedia.org/wiki/South_Africa#Culture) - South African culture
 
-[Blog content sources](./README/blog-planning-spreadsheet.pdf) :point_left:
+[Blog content sources](/README/blog-planning-spreadsheet.pdf) :point_left:
 click to view content sources
 
 ### Media
