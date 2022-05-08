@@ -222,7 +222,7 @@ input[type="file"],
 }
 
 .btn-coral {
-  color: var(white) !important;
+  color: white !important;
   background-color: var(--coral) !important;
   border-color: var(--coral) !important;
 }
@@ -244,7 +244,7 @@ input[type="file"],
 }
 
 .btn-grey {
-  color: var(white) !important;
+  color: white !important;
   background-color: var(--grey) !important;
   border-color: var(--grey) !important;
 }
