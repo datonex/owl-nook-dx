@@ -34,7 +34,7 @@
     {% endif %}
   </figure>
   <!-- Post content-->
-  <section class="col-12">
+  <div class="col-12">
     <div class="anon-content">
       {{ post.content|safe|truncatechars:200 }}
     </div>
@@ -49,5 +49,5 @@
         <a class="link-coral" href="{% url 'account_login' %}" role="button">Login</a>
       </div>
     </div>
-  </section>
+  </div>
 </article>

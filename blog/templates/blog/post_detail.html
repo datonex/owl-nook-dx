@@ -80,23 +80,21 @@
               {% endif %}
             </figure>
             <!-- Post content-->
-            <section class="col-12">
+            <div class="col-12">
               <div class="post-content">{{ post.content | safe }}</div>
-            </section>
+            </div>
           </article>
         {% else %}
           {% include 'blog/includes/post_detail_anon.html'%}
         {% endif %}
-        <!-- Author details section-->
-        <section class="mb-5"></section>
         <!-- Categories section-->
-        <section class="mb-5">
+        <div class="mb-5">
           <a class="badge bg-light text-decoration-none link-dark fs-6 fw-light" href="{% url 'category_view' post.category.slug %}">{{ post.category}}</a>
-        </section>
+        </div>
         {% if user.is_authenticated %}
         
         <!--Interaction butttons-->
-        <section class="mb-5">
+        <div class="mb-5">
           <div class="row">
             <form action="{% url 'post_like' post.slug %}" method="POST">
               {% csrf_token %}
@@ -125,55 +123,53 @@
               </a>
             </form>
           </div>
-        </section>
-          <!-- Comments section-->
-          <section class="mb-5">
-            <div class="card bg-grey-20">
-              <div class="card-body">
-                <div class="card-header">
-                  <h4>Comments</h4>
+        </div>
+        <!-- Comments section-->
+        <section class="mb-5">
+          <div class="card bg-grey-20">
+            <div class="card-body">
+              <div class="card-header">
+                <h4>Comments</h4>
+              </div>
+              <!-- Comment form-->
+              <form method="POST" action="" class="mb-4">
+                {% csrf_token %}
+                {{ comment_form | crispy }}
+                <div class="d-flex justify-content-end">
+                  <button class="btn btn-coral mt-4" type="submit">Post</button>
                 </div>
-                <!-- Comment form-->
-                <form method="POST" action="" class="mb-4">
-                  {% csrf_token %}
-                  {{ comment_form | crispy }}
-                  <div class="d-flex justify-content-end">
-                    <button class="btn btn-coral mt-4" type="submit">Post</button>
-                  </div>
-                </form>
-                <!-- Comment with nested comments-->
-                {% if comments %}
-                {% comment %} prettier-ignore {% endcomment %}
-                  {% for comment in comments %}
-                    <div class="d-flex mb-4">
-                      <!-- Parent comment-->
-                      <div class="flex-shrink-0">
-                        <span class="user-icon">
-                          {% include 'blog/includes/profile_svg.html' %}
-                        </span>
-                      </div>
-                      <div class="ms-3">
-                        <div class="rounded bg-grey-20 p-2">
-                          <div class="link-coral mb-2">
-                            <p class="text-coral">{{ comment.name }}</p>
-                            <p class="text-white">{{ comment.created_on }}</p>
-                          </div>
-                          <div>
-                            {{ comment.body | linebreaks }}
-                          </div>
+              </form>
+              <!-- Comment with nested comments-->
+              {% if comments %}
+              {% comment %} prettier-ignore {% endcomment %}
+                {% for comment in comments %}
+                  <div class="d-flex mb-4">
+                    <!-- Parent comment-->
+                    <div class="flex-shrink-0">
+                      <span class="user-icon">
+                        {% include 'blog/includes/profile_svg.html' %}
+                      </span>
+                    </div>
+                    <div class="ms-3">
+                      <div class="rounded bg-grey-20 p-2">
+                        <div class="link-coral mb-2">
+                          <p class="text-coral">{{ comment.name }}</p>
+                          <p class="text-white">{{ comment.created_on }}</p>
+                        </div>
+                        <div>
+                          {{ comment.body | linebreaks }}
                         </div>
                       </div>
                     </div>
-                  {% endfor %}
-                {% else %}
+                  </div>
+                {% endfor %}
+              {% else %}
 
-                {% endif %}
-
-              </div>
-            </section>
-          {% endif %}
-        </div>
-
+              {% endif %}
+            </div>
+          </div>
+        </section>
+        {% endif %}
       </div>
     </div>
   {% endblock %}
