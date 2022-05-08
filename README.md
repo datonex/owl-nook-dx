@@ -501,28 +501,41 @@ The reading list model was removed from the project and instead was implemented 
 
 Automated testing was carried out using [Katalon](https://katalon.com/)
 
-Tests can be found [here](./auto_tests/) :point_left:
+Tests can be found [here](https://github.com/datonex/owl-nook-dx/tree/master/tests) :point_left:
 
-I used live testing adn used the website as a user by typing in fake data.
+I used live testing and recorded the interaction. I began by testing the links on the home page as an anonymous user. Test if i am able to access restricted content: and found the following
 
-- ### The Image grid
+- Limited access to post detail text. I am restricted to a few characters and prompted to login to view the rest
 
-- Any image that is hovered on (desktop only) the text is uniformly aligned and shows correct information for another device the grid is hidden and a continuous prose is displayed instead.
+- Bookmark, comments and like/dislike is functionality is disabled
 
-- ### External links
+- Get started/login/register links direct to correct pages
 
-- All social links in the footer bring the user to the relevant social pages
-- Links to external websites, the booking and visa button bring the user to the right website in a new tab.
+- Hard coding add post page, delete article, edit article, user draft, user bookmark - I am redirected to the login page
 
-- ### Internal Links
+As a registered user I attempted the same steps as as anonymous user and I attempted to access the following content
 
-- Logo and text all lead to home page
-- Navigation links lead to relevant pages
-- Contact us link leads to the correct page for all web pages
+- I am able to log in to my account and I have access to article content text
+
+- Add bookmark button is enabled
+
+- Attempting to view empty bookmarks I am told my list is empty and prompted to add articles
+
+- Add bookmark button is clicked on an article and is added to my list
+
+- Like/unlike buttons update page
+
+- Test comment post by adding content
+
+- I have access to add posts or drafts, edit posts, add categories, delete my own posts from drafts, or article page (if I am author of page)
+
+- I attempted to hard code add posts or drafts, edit posts, add categories, delete my own posts from drafts, or article page (if I am author of page) urls of another user. I am denied access to other user's content.
 
 ### Bugs
 
 - [ ] Form validation fails when user logs in, attempts to change password from profile or when user creates duplicate slugs due to None type value being returned.
+
+- [ ] New categories added by user on frontend are not searchable via search bar on front end
 
 - [x] Not null at category - integrity error -> Fixed-default category was not saved in database, on add post or edit post submission, if user does not set a category this error was received.
 
@@ -536,7 +549,7 @@ I used live testing adn used the website as a user by typing in fake data.
 
 - [x] HTTP404 - django attempts to input slug of a drafted post. after submission. -> Fixed - reverse lazy to post drafts page after posting blog draft
 
-- Few other none interesting bugs in trello [here](https://trello.com/b/EE8FIF7B) :point_left:
+- Other bugs in trello [here](https://trello.com/b/EE8FIF7B) :point_left:
 
 ### CSS3 validator
 
@@ -555,7 +568,7 @@ Pass
 | Tablet              | :heavy_check_mark: | Not Tested. |  Not Tested.   | :heavy_check_mark: | :heavy_check_mark: |    Not Tested     |
 
 - OS Compatibility was tested on iOS 14.5.1, MacOS Catalina, iPadOS 14.5 It is yet to be tested on Unix, Linux, Windows or Solaris Operating Systems.
-- The devices used in this testing include MacBook Pro, iPad Pro, iPhone 12 Pro Max, iPhone 7 Plus.
+- The devices used in this testing include MacBook Pro, iPad Pro, iPhone 12 Pro Max, iPhone 7 Plus, Samsung Galaxy S10
 
 - The website was exhaustively tested for responsiveness on [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools). Different viewport sizes were simulated ranging from as small as iPhone 5 (320px) to large desktop sizes (1200px and above).
 
