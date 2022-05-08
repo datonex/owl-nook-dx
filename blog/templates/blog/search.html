@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block extrajs %}
-  <script type="text/javascript" src="{% static 'blog/js/lib/Waypoints/jquery.waypoints.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'blog/js/lib/Waypoints/infinite.min.js' %}"></script>
+  <script src="{% static 'blog/js/lib/Waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'blog/js/lib/Waypoints/infinite.min.js' %}"></script>
 {% endblock %}
 
 {% block extra_css %}
@@ -64,7 +64,7 @@
   </div>
 {% endblock %}
 {% block postload_js %}
-  <script type="text/javascript">
+  <script>
     /** Begin waypoint infinite scrolling */
     var infinite = new Waypoint.Infinite({
       element: $('.infinite-container')[0],
