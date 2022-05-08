@@ -23,9 +23,9 @@
               <div class="col-4">
                 <a href="{% url 'edit_post' post.id %}" class="main-post">
                   {% if "placeholder" in post.featured_image.url %}
-                    <img class="img-fluid" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg"/>
+                    <img class="img-fluid search-img" src="https://res.cloudinary.com/datonex/image/upload/v1640619246/placeholder.jpg"/>
                   {% else %}
-                    <img class="img-fluid" src=" {{ post.featured_image.url }}"/>
+                    <img class="img-fluid search-img" src=" {{ post.featured_image.url }}"/>
                   {% endif %}
                 </a>
               </div>
