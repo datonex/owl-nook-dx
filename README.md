@@ -1,4 +1,6 @@
-# <img src="README/owl-coral.png" height="50" /> Owl Nook
+# <img src="./README/owl-coral.png" height="50" /> Owl Nook
+
+![Live mockup](./README/live-mockup.png)
 
 ## Overview
 
@@ -14,9 +16,9 @@ Reddit type blog full of all kinds of posts. This includes news, tips and posts 
 
 The website is going to be blog type layout. For those users who are there just to browse can expand on the post they are interested in but they will need to have an account to view the content. They can also save posts to read later. For those who love to share content they also need to have an account and can create posts and add photos at their own convenience. The website is built using the Django framework to handle creating user accounts and managing the website. The Postgres database is used to store general user data so that they can access their information later.
 
-:point_right: [Live Website](https://owl-nook.herokuapp.com/) :desktop_computer:
+:point_right: [Live Website](https://owl-nook-dx.herokuapp.com/) :desktop_computer:
 
-:point_right: [GitHub Repository](https://github.com/datonex/owl-nook)
+:point_right: [GitHub Repository](https://github.com/datonex/owl-nook-dx)
 
 ## UX & UI design
 
@@ -226,27 +228,145 @@ The physical ERD model will illustrate how the entities and their information wi
 
 Click here for [pdf version](README/DBMS/pdf/revised-ERD-crows-foot.pdf) 👈
 
+#### ERD Model during development
+
+During development, The custom user model was omitted from the project to due lack of form validation. Extensive research will need to be done to be able to effectively implement this feature at a later date. For the sake of submission I opted to use the all auth user model django's model instead.
+
+The reading list model was removed from the project and instead was implemented by adding a new bookmark field in the blog post entity.
+
 ### Existing Features
-
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
-
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
 
 #### Common Features Across All Pages
 
-- [x] **Header** - allows user to easily navigate across all pages
+- [x] **Links**
 
-- [x] **Links** that are hovered over
+  - Login button for returning users is clickable and highlighted, available on buttons and are usually coral for buttons and underlined in text (dedicated button removed for mobile to conserve space)
 
-- [x] **Navigation banner**
+  - All links are clickable and highlighted when hover over, with exception to user, write new blog, navbar search button and bookmark buttons for mobiles, tablets and desktops.
 
-- [x] **Responsiveness**
+  - Register button for new users available on all pages (changed to get started button on mobile for mobile devices)
+
+- [x] **Navigation bar**
+
+  - Nav bar is consistent across all devices and pages.
+
+  - New users can clearly make a new account from the header
+
+  - Returning users can login into their account via button
+
+  - Search bar is located in header for tablets and desktop devices
+
+  - Logo is large and clear, showing the website name
+
+  - Search bar also available via side widgets on tablets and desktops.
+
+  - Search bar available via hamburger button for mobiles devices
+
+- [x] **Side Widgets**
+
+- Search widget contains search bar for user to search for post on website
+
+- Categories widget contains current categories are are clickable to show related posts.
 
 ### Specific to Pages
 
 - [x] **Home Page**
 
-- Image grid to easily see a handful of places the user can visit. When the mouse hovers you get addition information about the location
+  - Featured post links direct to post detail page either by clicking on image or on read more button
+
+  - Other posts when clicked direct user to its post detail page either by clicking image or read more button.
+
+- [x] **Post Detail Page**
+
+  - Page shows article title, author who wrote, featured image and article content
+
+  - Next to author button there isa bookmark button for logged in user to save the post and read later
+
+  - Author of post has 2 buttons that allows user to edit article or delete it
+
+  - Anonymous user has book mark button disabled
+
+  - Category badge displayed to user and is clickable to view related posts
+
+  - Anonymous users are unable to see all post content, instead they can view a limited about and are immediately asked to log in or sign up to view the rest of the content. This
+
+  - Anonymous user has comments and like/dislike disabled
+
+  - Logged in user can view and add comments
+
+- [x] **Bookmarks Page**
+
+  - User can see their name and all the post they have saved
+
+  - User will see that they have no posts saved if they don't have any, are prompted to go to home page to add some.
+
+  - Clicking on image or Read more button directs user to post detail page
+
+  - If user is not authenticated, they are redirected to login page
+
+- [x] **Drafts Page**
+
+  - User can see their name and all the post they have drafted
+
+  - User will see that they have no posts saved if they don't have any, are prompted to go to home page to add some.
+
+  - Clicking on image or Read more button directs user to edit post
+
+  - If user is not authenticated, they are redirected to login page
+
+- [x] **Edit Profile Page**
+
+  - User can input optional data like enter their name and change their email
+
+  - [x] **Edit Password Page**
+
+  - User can change their password
+
+- [x] **Search Page**
+
+  - User can search for blogs by author, title or category
+
+- [x] **Category Page**
+
+  - All users can view posts by category
+
+  - If user is on category travel page, the travel badge is omitted from side widget.
+
+  - Clicking on image or Read more button directs user to post detail page
+
+  - If Category exists, but has no posts, user is prompted to create a post via button
+
+- [x] **Edit Post Page**
+
+  - User can edit a draft post from their draft page with data prefilled or directly for post detail page is user is the author.
+
+  - User can also delete post from and are prompted if they are sure via delete modal on same page.
+
+  - If user posts a draft, they are redirected to the draft page. Otherwise is post is to be published they will be redirected to post detail page.
+
+  - If user is not author of page, they are denied access to edit post
+
+  - Anonymous user has no access to page
+
+  - Anonymous user has no access
+
+  - [x] **Add Post Page**
+
+  - User can add a new post
+
+  - User has option to add a category if the ones provided are not relevant to their post
+
+  - If user posts a draft, they are redirected to the draft page. Otherwise is post is to be published they will be redirected to post detail page.
+
+  - Anonymous user has no access
+
+    - [x] **Add Category Page**
+
+  - User can add a new category
+
+  - If user posts a category they are redirected to add post page
+
+  - Anonymous user has no access
 
 ### Features Left to Implement
 
