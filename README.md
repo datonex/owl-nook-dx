@@ -2,6 +2,57 @@
 
 ![Live mockup](/README/live-mockup.png)
 
+## Table of contents
+
+- Owl Nook
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [What is this website for?](#what-is-this-website-for)
+    - [What does it do?](#what-does-it-do)
+    - [How does it work](#how-does-it-work)
+  - [UX & UI design](#ux--ui-design)
+    - [User Stories](#user-stories)
+    - [Design](#design)
+      - [Wireframes](#wireframes)
+        - [:iphone: Mobile Wireframes](#iphone-mobile-wireframes)
+        - [:iphone: Tablet Wireframes](#iphone-tablet-wireframes)
+        - [:desktop_computer: Desktop Wireframes](#desktop_computer-desktop-wireframes)
+      - [Colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - [Imagery](#imagery)
+      - [Buttons and button groups](#buttons-and-button-groups)
+      - [Content Blocks](#content-blocks)
+      - [Form elements](#form-elements)
+      - [Other elements and reference components](#other-elements-and-reference-components)
+      - [Mockups](#mockups)
+      - [Interactive prototype](#interactive-prototype)
+    - [Database](#database)
+      - [Conceptual ERD](#conceptual-erd)
+      - [Physical ERD model](#physical-erd-model)
+      - [ERD Model during development](#erd-model-during-development)
+    - [Existing Features](#existing-features)
+      - [Common Features Across All Pages](#common-features-across-all-pages)
+    - [Specific to Pages](#specific-to-pages)
+    - [Features Left to Implement](#features-left-to-implement)
+  - [Technologies Used](#technologies-used)
+    - [Languages used](#languages-used)
+    - [Frameworks, Libraries and Programs Used](#frameworks-libraries-and-programs-used)
+  - [Testing](#testing)
+    - [Bugs](#bugs)
+    - [CSS3 validator](#css3-validator)
+    - [HTML5 Validator](#html5-validator)
+    - [Compatibility Testing](#compatibility-testing)
+  - [Deployment](#deployment)
+    - [Contribution](#contribution)
+    - [Deployment to heroku](#deployment-to-heroku)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+      - [Images](#images)
+    - [Dependencies + help links](#dependencies--help-links)
+    - [Inspiration](#inspiration)
+    - [Acknowledgements](#acknowledgements)
+
 ## Overview
 
 ### What is this website for?
@@ -21,14 +72,6 @@ The website is going to be blog type layout. For those users who are there just 
 :point_right: [GitHub Repository](https://github.com/datonex/owl-nook-dx)
 
 ## UX & UI design
-
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-
-- As a user type, I want to perform an action, so that I can achieve a goal.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ### User Stories
 
@@ -498,8 +541,6 @@ I used live testing adn used the website as a user by typing in fake data.
 ### CSS3 validator
 
 Pass
-
-<a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border: 0; width: 88px; height: 31px;" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" /></a>
 
 ### HTML5 Validator
 
