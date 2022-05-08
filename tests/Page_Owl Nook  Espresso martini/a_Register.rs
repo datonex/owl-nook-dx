@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>a_Register</name>
+   <tag></tag>
+   <elementGuidId>6afa59e5-33cc-4d0f-ba37-03762cc274e4</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>div.text-center.mb-3 > a.btn.btn-coral</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(//a[contains(text(),'Register')])[2]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>a</value>
+      <webElementGuid>728a8957-9f3a-4127-abd0-b933c4ac9901</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>btn btn-coral</value>
+      <webElementGuid>8e03527e-4258-483e-b7a5-dc6461cf97e2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>href</name>
+      <type>Main</type>
+      <value>/owlet/signup/</value>
+      <webElementGuid>503cfd42-84bc-4982-a442-1ee0f2a0ce38</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>role</name>
+      <type>Main</type>
+      <value>button</value>
+      <webElementGuid>38765bbf-53e1-45ce-a64c-ddaba08b94c3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>text</name>
+      <type>Main</type>
+      <value>Register</value>
+      <webElementGuid>015d2dc9-75ab-4bba-a28d-bc7e7091bcd6</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/div[@class=&quot;container mt-5&quot;]/div[@class=&quot;row d-flex flex-column align-items-center&quot;]/div[@class=&quot;col-lg-8&quot;]/article[@class=&quot;d-flex flex-column align-items-center&quot;]/section[@class=&quot;col-12&quot;]/div[@class=&quot;anon-content-links&quot;]/div[@class=&quot;text-center mb-3&quot;]/a[@class=&quot;btn btn-coral&quot;]</value>
+      <webElementGuid>4de69dc8-8515-4842-8095-c4fa60ae7c78</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:link</name>
+      <type>Main</type>
+      <value>(//a[contains(text(),'Register')])[2]</value>
+      <webElementGuid>468224f1-eb63-4cdd-b1e2-29940611df00</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Register to read full post'])[1]/following::a[1]</value>
+      <webElementGuid>5ee1277f-3ca0-4bee-bc56-689de1372810</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Ingredients'])[1]/following::a[1]</value>
+      <webElementGuid>a2eb8515-f4ef-495d-a888-cbea90ac2b44</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Login'])[2]/preceding::a[1]</value>
+      <webElementGuid>274d6531-e3a3-43ed-a1d3-1be265225aff</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:href</name>
+      <type>Main</type>
+      <value>(//a[contains(@href, '/owlet/signup/')])[3]</value>
+      <webElementGuid>d4297c0c-60a5-46be-a7fc-38c1e79dcaf6</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//div[2]/div/a</value>
+      <webElementGuid>209ddd1e-2871-4fe2-a983-1e1de37e361e</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//a[@href = '/owlet/signup/' and (text() = 'Register' or . = 'Register')]</value>
+      <webElementGuid>bda2f84f-34b3-4e5d-b661-cf30731fcad4</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

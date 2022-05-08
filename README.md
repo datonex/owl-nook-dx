@@ -456,9 +456,11 @@ The reading list model was removed from the project and instead was implemented 
 
 ## Testing
 
-- ### Navigation bar
+Automated testing was carried out using [Katalon](https://katalon.com/)
 
-- ### Footer
+Tests can be found [here](./auto_tests/) :point_left:
+
+I used live testing adn used the website as a user by typing in fake data.
 
 - ### The Image grid
 
@@ -474,6 +476,24 @@ The reading list model was removed from the project and instead was implemented 
 - Logo and text all lead to home page
 - Navigation links lead to relevant pages
 - Contact us link leads to the correct page for all web pages
+
+### Bugs
+
+- [ ] Form validation fails when user logs in, attempts to change password from profile or when user creates duplicate slugs due to None type value being returned.
+
+- [x] Not null at category - integrity error -> Fixed-default category was not saved in database, on add post or edit post submission, if user does not set a category this error was received.
+
+- [x] attribute error when changing status of published post to draft -> Fixed redirect lazy to home page after changing blog status, rather than returning to post detail page
+
+- [x] Waypoints infinite scroll renders duplicate posts when paginating with class based view pagination. -> Fixed - defined pagination function and page render manually
+
+- [x] Jquery id selector won't input html onto add post + edit post page -> Fixed - used javascript syntax
+
+- [x] TypeError None type object being returned after comment post. No get data is being requested -> Fixed by returning previous page
+
+- [x] HTTP404 - django attempts to input slug of a drafted post. after submission. -> Fixed - reverse lazy to post drafts page after posting blog draft
+
+- Few other none interesting bugs in trello [here](https://trello.com/b/EE8FIF7B) :point_left:
 
 ### CSS3 validator
 
@@ -523,7 +543,7 @@ This website was published using [Heroku](https://heroku.com/).
 
 4. Start a django project with `django-admin startproject <project_name> .` the a django app with `python manage.py startapp <appname>`
 
-5. Inside project*name create a new file \_env.py* and put file name in your .gitignore
+5. Inside project-name create a new file _env.py_ and put file name in your .gitignore
 
 6. Open _env.py_ and type the variables:
 

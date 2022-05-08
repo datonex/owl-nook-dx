@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>path_1</name>
+   <tag></tag>
+   <elementGuidId>7cf3e81e-d836-4b5c-a6ee-76ad9af626cf</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>span.icon.d-flex.align-content-center.justify-content-between > svg.svg-inline--fa.fa-bookmark.text-coral > path</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>path</value>
+      <webElementGuid>a7dd409b-54bb-4e71-835e-e8d55ae9f4df</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>fill</name>
+      <type>Main</type>
+      <value>currentColor</value>
+      <webElementGuid>15060686-330e-4ab8-bb49-a92f6758698d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>d</name>
+      <type>Main</type>
+      <value>M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z</value>
+      <webElementGuid>7c42c685-82f8-450a-833d-5b5293d0bcac</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/div[@class=&quot;container mt-5&quot;]/div[@class=&quot;row d-flex flex-column align-items-center&quot;]/div[@class=&quot;col-lg-8&quot;]/article[@class=&quot;d-flex flex-column align-items-center&quot;]/header[@class=&quot;mb-4 container-fluid&quot;]/div[@class=&quot;d-flex justify-content-between&quot;]/div[2]/form[1]/button[@class=&quot;btn btn-outline-navy&quot;]/span[@class=&quot;icon d-flex align-content-center justify-content-between&quot;]/svg[@class=&quot;svg-inline--fa fa-bookmark text-coral&quot;]/path[1]</value>
+      <webElementGuid>d2a4181b-2050-45c4-836f-d4b682ea08fd</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>

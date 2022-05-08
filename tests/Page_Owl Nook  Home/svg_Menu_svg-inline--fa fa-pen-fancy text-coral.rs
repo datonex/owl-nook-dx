@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>svg_Menu_svg-inline--fa fa-pen-fancy text-coral</name>
+   <tag></tag>
+   <elementGuidId>ce878049-c003-4a8c-8b2b-29fb23f5edcf</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>ul.navbar-nav.d-none.d-sm-flex.justify-content-evenly > li.nav-item.px-2.mx-1 > a.nav-link > span.icon > svg.svg-inline--fa.fa-pen-fancy.text-coral</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='Menu'])[1]/following::*[name()='svg'][9]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>svg</value>
+      <webElementGuid>adf38fb4-a569-45d3-8b09-4517490d8623</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>svg-inline--fa fa-pen-fancy text-coral</value>
+      <webElementGuid>fae0592b-ed8a-429f-9771-ddffd7b9e1b0</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>aria-hidden</name>
+      <type>Main</type>
+      <value>true</value>
+      <webElementGuid>f3d4c3fa-6989-4613-b4c4-2044ca839bac</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>focusable</name>
+      <type>Main</type>
+      <value>false</value>
+      <webElementGuid>2f4a2c50-0db4-4fe2-9e28-614af46d69ff</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-prefix</name>
+      <type>Main</type>
+      <value>fas</value>
+      <webElementGuid>daf1e678-33a3-45c6-ab61-02479b4cc738</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-icon</name>
+      <type>Main</type>
+      <value>pen-fancy</value>
+      <webElementGuid>ee796379-8e72-476f-bc63-83830436d1c4</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>role</name>
+      <type>Main</type>
+      <value>img</value>
+      <webElementGuid>32be750f-9107-48d5-8d1d-43d6d37ffce3</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xmlns</name>
+      <type>Main</type>
+      <value>http://www.w3.org/2000/svg</value>
+      <webElementGuid>8839c645-d7cc-4d39-beb6-d09b966e97d8</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>viewBox</name>
+      <type>Main</type>
+      <value>0 0 512 512</value>
+      <webElementGuid>9a035294-422b-4d49-9b8a-68e3e7c7058f</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/nav[@class=&quot;navbar navbar-expand-sm navbar-dark bg-navy&quot;]/div[@class=&quot;container-lg&quot;]/ul[@class=&quot;navbar-nav d-none d-sm-flex justify-content-evenly&quot;]/li[@class=&quot;nav-item px-2 mx-1&quot;]/a[@class=&quot;nav-link&quot;]/span[@class=&quot;icon&quot;]/svg[@class=&quot;svg-inline--fa fa-pen-fancy text-coral&quot;]</value>
+      <webElementGuid>257c66f9-0c0a-4129-ac31-059f094baf0b</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Menu'])[1]/following::*[name()='svg'][9]</value>
+      <webElementGuid>ad608c83-52d7-494d-922d-a711fe180985</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Search'])[2]/following::*[name()='svg'][10]</value>
+      <webElementGuid>d6f12c1f-2549-4c46-88eb-eb955c9d2d89</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='stevenrules'])[1]/preceding::*[name()='svg'][2]</value>
+      <webElementGuid>6bd2f986-d369-42ae-8379-ddfa2c3dbfde</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Edit Profile'])[1]/preceding::*[name()='svg'][2]</value>
+      <webElementGuid>7401a78e-c3ba-4e26-b301-6cb07725c163</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

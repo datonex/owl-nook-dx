@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>path</name>
+   <tag></tag>
+   <elementGuidId>59afa126-8dde-4f95-8b96-b14975ed6861</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>ul.navbar-nav.d-none.d-sm-flex.justify-content-evenly > li.nav-item.px-2.mx-1 > a.nav-link > span.icon > svg.svg-inline--fa.fa-bookmark.text-coral > path</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value></value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>path</value>
+      <webElementGuid>a77af4ad-e3cc-431c-a84f-419197f04117</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>fill</name>
+      <type>Main</type>
+      <value>currentColor</value>
+      <webElementGuid>15bdf7a4-a711-4e5e-adb7-342f436c0faf</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>d</name>
+      <type>Main</type>
+      <value>M384 48V512l-192-112L0 512V48C0 21.5 21.5 0 48 0h288C362.5 0 384 21.5 384 48z</value>
+      <webElementGuid>9f883647-3e91-4a60-99d2-9f841beba599</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/nav[@class=&quot;navbar navbar-expand-sm navbar-dark bg-navy&quot;]/div[@class=&quot;container-lg&quot;]/ul[@class=&quot;navbar-nav d-none d-sm-flex justify-content-evenly&quot;]/li[@class=&quot;nav-item px-2 mx-1&quot;]/a[@class=&quot;nav-link&quot;]/span[@class=&quot;icon&quot;]/svg[@class=&quot;svg-inline--fa fa-bookmark text-coral&quot;]/path[1]</value>
+      <webElementGuid>4074cba9-d753-48d2-b4a4-953e6ad0760f</webElementGuid>
+   </webElementProperties>
+</WebElementEntity>

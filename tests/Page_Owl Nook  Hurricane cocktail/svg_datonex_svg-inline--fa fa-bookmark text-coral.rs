@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>svg_datonex_svg-inline--fa fa-bookmark text-coral</name>
+   <tag></tag>
+   <elementGuidId>10015b73-2587-4ab8-a182-b8240ecb8904</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>span.icon.d-flex.align-content-center.justify-content-between > svg.svg-inline--fa.fa-bookmark.text-coral</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='datonex'])[1]/following::*[name()='svg'][1]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>svg</value>
+      <webElementGuid>85e026ed-0e82-40c1-8a3f-d0885f869b28</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>svg-inline--fa fa-bookmark text-coral</value>
+      <webElementGuid>00b6a8af-e3bc-48a7-8cc0-1d2f50663ee7</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>aria-hidden</name>
+      <type>Main</type>
+      <value>true</value>
+      <webElementGuid>e2b135b1-3e0b-4ccf-b82b-fea4a2c1c04c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>focusable</name>
+      <type>Main</type>
+      <value>false</value>
+      <webElementGuid>16524c4f-d1f4-42df-bb2c-38de3f7c804a</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-prefix</name>
+      <type>Main</type>
+      <value>far</value>
+      <webElementGuid>237cff61-b0b1-4ffe-a78c-f512a3ca047c</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-icon</name>
+      <type>Main</type>
+      <value>bookmark</value>
+      <webElementGuid>cb79a2e5-ac20-4859-81da-c971dc465c2d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>role</name>
+      <type>Main</type>
+      <value>img</value>
+      <webElementGuid>f0290253-244f-4a4e-8123-5c23f09c65a7</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xmlns</name>
+      <type>Main</type>
+      <value>http://www.w3.org/2000/svg</value>
+      <webElementGuid>0445fd69-1890-440c-ab42-eb09dbe8af72</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>viewBox</name>
+      <type>Main</type>
+      <value>0 0 384 512</value>
+      <webElementGuid>28074ea9-7dfc-4e0c-99c5-bf8cde2eee89</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/div[@class=&quot;container mt-5&quot;]/div[@class=&quot;row d-flex flex-column align-items-center&quot;]/div[@class=&quot;col-lg-8&quot;]/article[@class=&quot;d-flex flex-column align-items-center&quot;]/header[@class=&quot;mb-4 container-fluid&quot;]/div[@class=&quot;d-flex justify-content-between&quot;]/div[2]/form[1]/button[@class=&quot;btn btn-outline-navy&quot;]/span[@class=&quot;icon d-flex align-content-center justify-content-between&quot;]/svg[@class=&quot;svg-inline--fa fa-bookmark text-coral&quot;]</value>
+      <webElementGuid>5a076b33-d15e-48c1-9cb7-42e745e8f294</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='datonex'])[1]/following::*[name()='svg'][1]</value>
+      <webElementGuid>94090c9f-b7d1-4e92-8324-0a3d01a00dd0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Prep time: 5 mins'])[1]/preceding::*[name()='svg'][1]</value>
+      <webElementGuid>17f3771b-9fae-4528-a298-d8cd482bc281</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Difficulty: Easy'])[1]/preceding::*[name()='svg'][1]</value>
+      <webElementGuid>6d141dac-7e23-4eb0-803c-d1d6c0a1163d</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

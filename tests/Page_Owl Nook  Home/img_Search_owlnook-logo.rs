@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>img_Search_owlnook-logo</name>
+   <tag></tag>
+   <elementGuidId>c1f22d5a-5424-4e37-a72d-7fc0856e4ea2</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>img.owlnook-logo</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//img[@alt='Owl Nook']</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>img</value>
+      <webElementGuid>7a12bd1a-22c3-4e33-af4b-ed86e0c2b324</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>src</name>
+      <type>Main</type>
+      <value>https://res.cloudinary.com/datonex/image/upload/v1/owlnook-dx/static/img/logo/png/logo-coral.9307bdcf13ea.png</value>
+      <webElementGuid>4f7672b0-3006-47b9-a2a4-f681925846a8</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>alt</name>
+      <type>Main</type>
+      <value>Owl Nook</value>
+      <webElementGuid>3446504c-2f6b-4a0a-80eb-5bcafe0ae394</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>owlnook-logo</value>
+      <webElementGuid>eb800b4c-bab4-4576-85de-0bece96f4a86</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/nav[@class=&quot;navbar navbar-expand-sm navbar-dark bg-navy&quot;]/div[@class=&quot;container-lg&quot;]/a[@class=&quot;navbar-brand&quot;]/img[@class=&quot;owlnook-logo&quot;]</value>
+      <webElementGuid>1573fd39-c341-4fd1-a393-89f9e2b5123d</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:img</name>
+      <type>Main</type>
+      <value>//img[@alt='Owl Nook']</value>
+      <webElementGuid>f79b8186-1fa1-4ad8-837b-26605864b516</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:position</name>
+      <type>Main</type>
+      <value>//img</value>
+      <webElementGuid>956e2dc0-c101-4bd1-bdcb-832a0bf6faf0</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:customAttributes</name>
+      <type>Main</type>
+      <value>//img[@src = 'https://res.cloudinary.com/datonex/image/upload/v1/owlnook-dx/static/img/logo/png/logo-coral.9307bdcf13ea.png' and @alt = 'Owl Nook']</value>
+      <webElementGuid>f0f3c0d8-3544-496e-a3ac-912513259d65</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>

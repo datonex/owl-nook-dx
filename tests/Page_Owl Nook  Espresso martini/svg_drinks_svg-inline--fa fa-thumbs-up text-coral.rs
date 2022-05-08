@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebElementEntity>
+   <description></description>
+   <name>svg_drinks_svg-inline--fa fa-thumbs-up text-coral</name>
+   <tag></tag>
+   <elementGuidId>afdaab3c-c796-4972-b6fc-c459d6f1ec59</elementGuidId>
+   <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>svg.svg-inline--fa.fa-thumbs-up.text-coral</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='drinks'])[1]/following::*[name()='svg'][1]</value>
+      </entry>
+   </selectorCollection>
+   <selectorMethod>XPATH</selectorMethod>
+   <useRalativeImagePath>true</useRalativeImagePath>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>tag</name>
+      <type>Main</type>
+      <value>svg</value>
+      <webElementGuid>8b6ae860-0eef-44b9-a23c-85d6db961b28</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>class</name>
+      <type>Main</type>
+      <value>svg-inline--fa fa-thumbs-up text-coral</value>
+      <webElementGuid>edf8b7fe-cd63-49de-ac0b-5e98a35da116</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>aria-hidden</name>
+      <type>Main</type>
+      <value>true</value>
+      <webElementGuid>b73e0310-1e6d-4016-9a1b-8a9a055e146d</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>focusable</name>
+      <type>Main</type>
+      <value>false</value>
+      <webElementGuid>6f5aa869-4dd5-4136-b4e2-9c37455459b7</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-prefix</name>
+      <type>Main</type>
+      <value>far</value>
+      <webElementGuid>4a55f83c-5c34-44ce-9f91-96e4a87d10ea</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>data-icon</name>
+      <type>Main</type>
+      <value>thumbs-up</value>
+      <webElementGuid>91ddc61d-4faa-4f37-bba0-3eaa02ec09a2</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>role</name>
+      <type>Main</type>
+      <value>img</value>
+      <webElementGuid>eedcd3bd-e429-44d5-84a1-712c03e98811</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xmlns</name>
+      <type>Main</type>
+      <value>http://www.w3.org/2000/svg</value>
+      <webElementGuid>e6907667-2cb9-4623-a15d-44c3cd13b289</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>viewBox</name>
+      <type>Main</type>
+      <value>0 0 512 512</value>
+      <webElementGuid>130bf724-d006-4556-9722-827f4894883e</webElementGuid>
+   </webElementProperties>
+   <webElementProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath</name>
+      <type>Main</type>
+      <value>/html[@class=&quot;fontawesome-i2svg-active fontawesome-i2svg-complete&quot;]/body[@class=&quot;bg-navy text-white&quot;]/div[@class=&quot;container mt-5&quot;]/div[@class=&quot;row d-flex flex-column align-items-center&quot;]/div[@class=&quot;col-lg-8&quot;]/section[@class=&quot;mb-5&quot;]/div[@class=&quot;row&quot;]/form[1]/button[@class=&quot;btn btn-outline-navy&quot;]/span[@class=&quot;icon d-flex align-content-center justify-content-between&quot;]/svg[@class=&quot;svg-inline--fa fa-thumbs-up text-coral&quot;]</value>
+      <webElementGuid>5abf61f2-d7d2-4270-ac34-7b0f9fbfbe0f</webElementGuid>
+   </webElementProperties>
+   <webElementXpaths>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='drinks'])[1]/following::*[name()='svg'][1]</value>
+      <webElementGuid>11dda05b-7f91-49c4-8b28-623f1522d098</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Espresso, chocolate &amp; chilli cake with coffee cream'])[1]/following::*[name()='svg'][1]</value>
+      <webElementGuid>1603c7a0-ed65-434d-a683-f1442e26d0bd</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Comments'])[1]/preceding::*[name()='svg'][2]</value>
+      <webElementGuid>b34a938c-e38c-4cef-aadc-1763ed050643</webElementGuid>
+   </webElementXpaths>
+   <webElementXpaths>
+      <isSelected>false</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>xpath:neighbor</name>
+      <type>Main</type>
+      <value>(.//*[normalize-space(text()) and normalize-space(.)='Post'])[1]/preceding::*[name()='svg'][2]</value>
+      <webElementGuid>b9c1cb65-0d58-4264-929f-580a0400697e</webElementGuid>
+   </webElementXpaths>
+</WebElementEntity>
