@@ -370,9 +370,27 @@ The reading list model was removed from the project and instead was implemented 
 
 ### Features Left to Implement
 
-## Technologies Used
+- Website footer for social media links and help pages for user
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+- User to be able to filter posts by date or popularity.
+
+- User profile page where user can choose their own avatar image and add a bibliography
+
+- Author bibliography details on post detail page
+
+- Logged in user can follow other users to later can notified if they make a new post
+
+- Logged in user can attach multiple categories to their posts
+
+- All users can create shareable page links to blog post to share with their friends
+
+- When user adds a bookmark, a comment, or like a page, page update data without reloading
+
+- User can have multiple bookmark lists and be able to name them
+
+- Scroll to top button
+
+## Technologies Used
 
 ### Languages used
 
@@ -380,7 +398,7 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [CSS](https://en.wikipedia.org/wiki/CSS) - Add styling and colours to web page.
 - [JavaScript](https://www.javascript.com/) - Add interactive features to web page
 
-- [Python](https://www.python.org/) - Add code to allow app to access database.
+- [Python](https://www.python.org/) - Used to handle user input and get data back to user.
 
 ### Frameworks, Libraries and Programs Used
 
@@ -435,25 +453,6 @@ In this section, you should mention all of the languages, frameworks, libraries,
 - [TinyMCE](https://www.tiny.cloud) - WYSIWYG text editor
 
 ## Testing
-
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Eg. Contact form:
-
-- Go to the "Contact Us" page
-- Try to submit the empty form and verify that an error message about the required fields appears
-- Try to submit the form with an invalid email address and verify that a relevant error message appears
-- Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 - ### Navigation bar
 
