@@ -67,7 +67,7 @@ Reddit type blog full of all kinds of posts. This includes news, tips and posts 
 
 The website is going to be blog type layout. For those users who are there just to browse can expand on the post they are interested in but they will need to have an account to view the content. They can also save posts to read later. For those who love to share content they also need to have an account and can create posts and add photos at their own convenience. The website is built using the Django framework to handle creating user accounts and managing the website. The Postgres database is used to store general user data so that they can access their information later.
 
-:point_right: [Live Website](https://owl-nook-dx.herokuapp.com/) :desktop_computer:
+:point_right: [Live Website](https://owl-nook-dx.onrender.com/) :desktop_computer:
 
 :point_right: [GitHub Repository](https://github.com/datonex/owl-nook-dx)
 
